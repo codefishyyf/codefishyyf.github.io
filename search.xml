@@ -19,21 +19,21 @@
 ]]></content>
   </entry>
   <entry>
-    <title>我的第一篇博客</title>
-    <url>/2021/12/25/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<p>我的第一篇博客，啦啦啦</p>
-]]></content>
-      <tags>
-        <tag>博客1</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>我的第二篇博客</title>
     <url>/2021/12/25/%E6%88%91%E7%9A%84%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
     <content><![CDATA[<p>第二篇博客啦</p>
 ]]></content>
       <tags>
         <tag>博客2</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>我的第一篇博客</title>
+    <url>/2021/12/25/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<p>我的第一篇博客，啦啦啦</p>
+]]></content>
+      <tags>
+        <tag>博客1</tag>
       </tags>
   </entry>
 </search>
