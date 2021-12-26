@@ -1,56 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>我的第二篇博客</title>
-    <url>/2021/12/25/%E6%88%91%E7%9A%84%E7%AC%AC%E4%BA%8C%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<p>第二篇博客啦</p>
+    <title>git</title>
+    <url>/2021/12/26/git/</url>
+    <content><![CDATA[<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226175034.jpeg" alt="img"></p>
+<h1 id="Git、GitHub、Gitee、GitLab"><a href="#Git、GitHub、Gitee、GitLab" class="headerlink" title="Git、GitHub、Gitee、GitLab"></a>Git、GitHub、Gitee、GitLab</h1><span id="more"></span>
+
+<h2 id="一、Git介绍"><a href="#一、Git介绍" class="headerlink" title="一、Git介绍"></a>一、Git介绍</h2><p>分布式版本控制工具 ：Git</p>
+<p>集中式版本控制工具：SVN</p>
+<p>、IDEA中使用Git</p>
 ]]></content>
+      <categories>
+        <category>GIT</category>
+      </categories>
       <tags>
-        <tag>博客2</tag>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2021/12/23/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+    <title>hexo搭建博客三</title>
+    <url>/2021/12/26/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E4%B8%89/</url>
+    <content><![CDATA[<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226184506.jpeg" alt="img"></p>
+<h1 id="启用next主题，并配置"><a href="#启用next主题，并配置" class="headerlink" title="启用next主题，并配置"></a>启用next主题，并配置</h1><span id="more"></span>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>测试</title>
-    <url>/2021/12/25/%E6%B5%8B%E8%AF%95/</url>
-    <content><![CDATA[<p>测试案例：测试图片是否保存到了指定文件夹下，并且能够展示出来</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211225234358.png" alt="image-20211225234348358"></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>我的第一篇博客</title>
-    <url>/2021/12/25/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<p>我的第一篇博客，啦啦啦</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;你好世界&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<p>[<a href="https://baidu/">https://baidu</a> .com]: </p>
-<p>本地查看主题：<a href="http://localhost:4000/">http://localhost:4000</a></p>
-<p>使用typora上传文件到picgo上或者七牛云上</p>
-<p><img data-src="E:/myBlog/codefishyyfBlog/source/images/image-20211225183941121.png" alt="image-20211225183941121"></p>
-]]></content>
+      <categories>
+        <category>搭建博客</category>
+      </categories>
       <tags>
-        <tag>博客1</tag>
+        <tag>搭建博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo搭建博客一</title>
+    <url>/2021/12/26/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E4%B8%80/</url>
+    <content><![CDATA[<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226184858.png" alt="image-20211226184858198"></p>
+<h1 id="前提准备：安装Git、Node-js、Sublime、typora"><a href="#前提准备：安装Git、Node-js、Sublime、typora" class="headerlink" title="前提准备：安装Git、Node.js、Sublime、typora"></a>前提准备：安装Git、Node.js、Sublime、typora</h1><span id="more"></span>
+
+<p>[toc]</p>
+<h1 id="一、Git安装"><a href="#一、Git安装" class="headerlink" title="一、Git安装"></a>一、Git安装</h1><h2 id="1-1、下载Git"><a href="#1-1、下载Git" class="headerlink" title="1.1、下载Git"></a>1.1、下载Git</h2><p>Git官网：<a href="https://git-scm.com/download">https://git-scm.com/download</a></p>
+<p>Git版本：Git2.32</p>
+<img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226185102.png" alt="Image" style="zoom:70%;" />
+
+<img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226185230.png" alt="Image" style="zoom: 70%;" />
+
+<h2 id="1-2、安装Git"><a href="#1-2、安装Git" class="headerlink" title="1.2、安装Git"></a>1.2、安装Git</h2><p><strong>1、使用许可声明</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226185334.png" alt="Image"></p>
+<p><strong>2、选择安装路径</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226185606.png" alt="Image"></p>
+<p><strong>3、选择安装组件</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226185618.png" alt="Image"></p>
+<p><strong>4、选择开始页</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226190155.png" alt="Image"></p>
+<p><strong>5、选择git文件默认的编辑器</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226190202.png" alt="Image"></p>
+<p><strong>6、调整path环境</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226190435.png" alt="Image"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226190447.png" alt="Image"></p>
+<p><strong>7、选择https后端传输</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226190504.png" alt="Image"></p>
+<p><strong>8、配置行尾符号转换</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226190521.png" alt="Image"></p>
+<p><strong>9、配置终端模拟器与gitBash一起使用</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226190544.png" alt="Image"></p>
+<p><strong>10、配置额外的选项</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226190559.png" alt="Image"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226190605.png" alt="Image"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226190613.png" alt="Image"></p>
+<p><strong>11、实验室选项</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226190632.png" alt="Image"></p>
+<p><strong>12、安装完成</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226190646.png" alt="Image"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226190653.png" alt="Image"></p>
+<p><strong>13、验证安装完成</strong></p>
+<p>方式一：</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226190704.png" alt="Image"></p>
+<p>方式二：</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226190711.png" alt="Image"></p>
+<h1 id="二、Node-js安装"><a href="#二、Node-js安装" class="headerlink" title="二、Node.js安装"></a>二、Node.js安装</h1><h2 id="2-1、下载node-js"><a href="#2-1、下载node-js" class="headerlink" title="2.1、下载node.js"></a>2.1、下载node.js</h2><p>Node.js中文官网：<a href="https://nodejs.org/zh-cn/">https://nodejs.org/zh-cn/</a></p>
+<p>Node.js版本：v14.17.1</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226190857.png" alt="Image"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226191215.png" alt="Image"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226191212.png" alt="Image"></p>
+<h2 id="2-2、安装node-js"><a href="#2-2、安装node-js" class="headerlink" title="2.2、安装node.js"></a>2.2、安装node.js</h2><p><strong>1、开始安装</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226191209.png" alt="Image"></p>
+<p><strong>2、勾选同意信息</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226191304.png" alt="Image"></p>
+<p><strong>3、选择安装路径</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226191313.png" alt="Image"></p>
+<p><strong>4、自动配置path路径</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226191321.png" alt="Image"></p>
+<p><strong>5、等待安装完成</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226191056.png" alt="Image"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226191145.png" alt="Image"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226191158.png" alt="Image"></p>
+<p><strong>6、测试安装成功</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226191047.png" alt="Image"></p>
+<h1 id="三、Sublime安装"><a href="#三、Sublime安装" class="headerlink" title="三、Sublime安装"></a>三、Sublime安装</h1><h2 id="3-1、下载sublime"><a href="#3-1、下载sublime" class="headerlink" title="3.1、下载sublime"></a>3.1、下载sublime</h2><p>sublime官网：<a href="https://www.sublimetext.com/">https://www.sublimetext.com/</a></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226191523.png" alt="Image"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226191744.png" alt="Image"></p>
+<h2 id="3-2、安装sublime"><a href="#3-2、安装sublime" class="headerlink" title="3.2、安装sublime"></a>3.2、安装sublime</h2><p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226191715.png" alt="Image"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226191755.png" alt="Image"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226191801.png" alt="Image"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226191807.png" alt="Image"></p>
+<h1 id="四、Typora安装"><a href="#四、Typora安装" class="headerlink" title="四、Typora安装"></a>四、Typora安装</h1><h2 id="4-1、下载Typora"><a href="#4-1、下载Typora" class="headerlink" title="4.1、下载Typora"></a>4.1、下载Typora</h2><p>typora官网：<a href="https://typora.io/">https://typora.io/</a></p>
+<p>typora版本：0.10.11（beta）</p>
+<h2 id="4-2、安装Typora"><a href="#4-2、安装Typora" class="headerlink" title="4.2、安装Typora"></a>4.2、安装Typora</h2><p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226191853.png" alt="Image"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226191912.png" alt="Image"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226191919.png" alt="Image"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226191927.png" alt="Image"></p>
+]]></content>
+      <categories>
+        <category>搭建博客</category>
+      </categories>
+      <tags>
+        <tag>搭建博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo搭建博客二</title>
+    <url>/2021/12/26/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E4%BA%8C/</url>
+    <content><![CDATA[<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226184541.jpeg" alt="img"></p>
+<h1 id="安装hexo，并将hexo部署到GitHub"><a href="#安装hexo，并将hexo部署到GitHub" class="headerlink" title="安装hexo，并将hexo部署到GitHub"></a>安装hexo，并将hexo部署到GitHub</h1><span id="more"></span>
+
+]]></content>
+      <categories>
+        <category>搭建博客</category>
+      </categories>
+      <tags>
+        <tag>搭建博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo搭建博客五</title>
+    <url>/2021/12/26/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E4%BA%94/</url>
+    <content><![CDATA[<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226184204.jpeg" alt="img"></p>
+<h1 id="Typora使用"><a href="#Typora使用" class="headerlink" title="Typora使用"></a>Typora使用</h1><span id="more"></span>
+
+]]></content>
+      <categories>
+        <category>搭建博客</category>
+      </categories>
+      <tags>
+        <tag>搭建博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo搭建博客四</title>
+    <url>/2021/12/26/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%9B%9B/</url>
+    <content><![CDATA[<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226184422.png"></p>
+<h1 id="设置自己的域名、添加valine评论、设置PicGo-github图床"><a href="#设置自己的域名、添加valine评论、设置PicGo-github图床" class="headerlink" title="设置自己的域名、添加valine评论、设置PicGo+github图床"></a>设置自己的域名、添加valine评论、设置PicGo+github图床</h1><span id="more"></span>
+]]></content>
+      <categories>
+        <category>搭建博客</category>
+      </categories>
+      <tags>
+        <tag>搭建博客</tag>
       </tags>
   </entry>
 </search>
