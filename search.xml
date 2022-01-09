@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>SpringBoot日志实现</title>
+    <url>/2022/01/09/SpringBoot%E6%97%A5%E5%BF%97%E5%AE%9E%E7%8E%B0/</url>
+    <content><![CDATA[<span id="more"></span>
+
+<p>[toc]</p>
+]]></content>
+  </entry>
+  <entry>
     <title>git</title>
     <url>/2021/12/26/git/</url>
     <content><![CDATA[<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226175034.jpeg" alt="img"></p>
@@ -15,143 +23,6 @@
       </categories>
       <tags>
         <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo搭建博客三</title>
-    <url>/2021/12/26/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E4%B8%89/</url>
-    <content><![CDATA[<img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226184506.jpeg" alt="img" style="zoom: 25%;" />
-
-<h1 id="启用next主题，并配置"><a href="#启用next主题，并配置" class="headerlink" title="启用next主题，并配置"></a>启用next主题，并配置</h1><span id="more"></span>
-
-<p>[toc]</p>
-<h1 id="一、设置博客主题"><a href="#一、设置博客主题" class="headerlink" title="一、设置博客主题"></a>一、设置博客主题</h1><h3 id="1、下载next主题"><a href="#1、下载next主题" class="headerlink" title="1、下载next主题"></a>1、下载next主题</h3><h3 id="2、站点配置文件–启用next主题"><a href="#2、站点配置文件–启用next主题" class="headerlink" title="2、站点配置文件–启用next主题"></a>2、站点配置文件–启用next主题</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">将下载好的next主题，解压后放到Blog-&gt;Themes文件夹中，并改名为next</span><br><span class="line">设置站点配置文件中的theme</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226201159.png" alt="Image"></p>
-<h3 id="3、站点配置文件–设置博客文字描述和中文语言"><a href="#3、站点配置文件–设置博客文字描述和中文语言" class="headerlink" title="3、站点配置文件–设置博客文字描述和中文语言"></a>3、站点配置文件–设置博客文字描述和中文语言</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">云飞の博客</span>               <span class="comment"># 网站的标题</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">&#x27;&#x27;</span>                   <span class="comment"># 子标题</span></span><br><span class="line"><span class="attr">description:</span>                   <span class="comment"># 描述</span></span><br><span class="line"><span class="attr">keywords:</span> <span class="string">Java</span>  <span class="string">目标</span>  <span class="string">坚持</span>      <span class="comment"># 网站关键字</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">云飞</span>                    <span class="comment"># 作者</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">zh-CN</span>                 <span class="comment"># 网站采用的语言   </span></span><br><span class="line"><span class="attr">timezone:</span> <span class="string">Asia/Shanghai</span>         <span class="comment"># 网站的时区</span></span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226201528.png" alt="Image"></p>
-<h3 id="4、站点配置文件–设置首页点击阅读全文"><a href="#4、站点配置文件–设置首页点击阅读全文" class="headerlink" title="4、站点配置文件–设置首页点击阅读全文"></a>4、站点配置文件–设置首页点击阅读全文</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">安装插件：</span><br><span class="line">npm install hexo-excerpt --save</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226202438.png" alt="Image"></p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">在站点配置文件中添加以下代码：</span></span><br><span class="line"><span class="attr">excerpt:</span></span><br><span class="line">  <span class="attr">depth:</span> <span class="number">5</span>  </span><br><span class="line">  <span class="attr">excerpt_excludes:</span> []</span><br><span class="line">  <span class="attr">more_excludes:</span> []</span><br><span class="line">  <span class="attr">hideWholePostExcerpts:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226202534.png" alt="Image"></p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">在主题配置文件中添加以下代码(或者ctrl+F找到这个位置，修改为true)：</span></span><br><span class="line"><span class="attr">excerpt_description:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226202615.png" alt="Image"></p>
-<h3 id="5、站点配置文件–添加搜索功能"><a href="#5、站点配置文件–添加搜索功能" class="headerlink" title="5、站点配置文件–添加搜索功能"></a>5、站点配置文件–添加搜索功能</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">在Blog中右键git bush here执行以下代码：</span><br><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226202920.png" alt="Image"></p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">在站点配置文件任意位置添加如下代码：</span></span><br><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br><span class="line">  <span class="attr">limit:</span> <span class="number">10000</span></span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226203014.png" alt="Image"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">在主题配置文件中修改以下内容</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226203036.png" alt="Image"></p>
-<h3 id="6、站点配置文件–设置字数统计和预计阅读时长"><a href="#6、站点配置文件–设置字数统计和预计阅读时长" class="headerlink" title="6、站点配置文件–设置字数统计和预计阅读时长"></a>6、站点配置文件–设置字数统计和预计阅读时长</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">在Blog中右键git bush here执行以下代码：</span><br><span class="line">npm install hexo-symbols-count-time --save</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226203349.png" alt="Image"></p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">打开站点配置文件，任意位置添加如下代码：</span></span><br><span class="line"><span class="attr">symbols_count_time:</span></span><br><span class="line">  <span class="attr">symbols:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">time:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_symbols:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_time:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">打开主题配置文件，任意位置添加如下代码：</span></span><br><span class="line"><span class="attr">symbols_count_time:</span></span><br><span class="line">  <span class="attr">separated_meta:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">item_text_post:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">item_text_total:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">awl:</span> <span class="number">2</span></span><br><span class="line">  <span class="attr">wpm:</span> <span class="number">275</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h3 id="7、主题配置文件–修改hexo主题样式"><a href="#7、主题配置文件–修改hexo主题样式" class="headerlink" title="7、主题配置文件–修改hexo主题样式"></a>7、主题配置文件–修改hexo主题样式</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">ctrl+F找到Schemes，将Gemini前面的#</span> <span class="string">号去掉</span></span><br><span class="line"><span class="comment">#Schemes</span></span><br><span class="line"><span class="comment">#scheme: Muse</span></span><br><span class="line"><span class="comment">#scheme: Mist</span></span><br><span class="line"><span class="comment">#scheme: Pisces</span></span><br><span class="line"><span class="attr">scheme:</span> <span class="string">Gemini</span></span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226201728.png" alt="Image"></p>
-<h3 id="8、主题配置文件–增加标签页和分类页以及关于页"><a href="#8、主题配置文件–增加标签页和分类页以及关于页" class="headerlink" title="8、主题配置文件–增加标签页和分类页以及关于页"></a>8、主题配置文件–增加标签页和分类页以及关于页</h3><p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226202059.png" alt="Image"></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">在Blog中右键git bush here，输入以下命令：</span><br><span class="line">hexo <span class="keyword">new</span> page <span class="string">&quot;about&quot;</span>        #关于页</span><br><span class="line">hexo <span class="keyword">new</span> page <span class="string">&quot;tags&quot;</span>         #标签页</span><br><span class="line">hexo <span class="keyword">new</span> page <span class="string">&quot;categories&quot;</span>   #分类页</span><br><span class="line">hexo <span class="keyword">new</span> page <span class="string">&quot;archives&quot;</span>     #归档页</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226202136.png" alt="Image"></p>
-<p><strong>打开Blog中source，可以看见如下文件夹已经生成了</strong></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226202212.png" alt="Image"></p>
-<p><strong>修改上面四个文件夹中各自的.md结尾的文件</strong></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226202302.png" alt="image-20211226202302475"></p>
-<h3 id="9、主题配置文件–添加文章版权声明"><a href="#9、主题配置文件–添加文章版权声明" class="headerlink" title="9、主题配置文件–添加文章版权声明"></a>9、主题配置文件–添加文章版权声明</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">主题配置文件中设置 <span class="literal">true</span>：</span><br><span class="line"><span class="attr">creative_commons</span>:</span><br><span class="line">  license: by-nc-sa</span><br><span class="line">  <span class="attr">sidebar</span>: <span class="literal">false</span></span><br><span class="line">  <span class="attr">post</span>: <span class="literal">true</span></span><br><span class="line">  <span class="attr">language</span>:</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226204053.png" alt="Image"></p>
-<h3 id="10、主题配置文件–设置左上角或又上角github图标"><a href="#10、主题配置文件–设置左上角或又上角github图标" class="headerlink" title="10、主题配置文件–设置左上角或又上角github图标"></a>10、主题配置文件–设置左上角或又上角github图标</h3><p>复制自己喜欢的github图标代码<a href="https://tholman.com/github-corners/">https://tholman.com/github-corners/</a></p>
-<p>将上面复制的代码，复制到下图位置：</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226204205.png" alt="Image"></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226204230.png" alt="Image"></p>
-<p>修改github地址：</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226204236.png" alt="Image"></p>
-<h3 id="11、主题配置文件–添加图片放大预览功能"><a href="#11、主题配置文件–添加图片放大预览功能" class="headerlink" title="11、主题配置文件–添加图片放大预览功能"></a>11、主题配置文件–添加图片放大预览功能</h3><p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226204257.png" alt="Image"></p>
-<h3 id="12、主题配置文件–点击出现桃心效果"><a href="#12、主题配置文件–点击出现桃心效果" class="headerlink" title="12、主题配置文件–点击出现桃心效果"></a>12、主题配置文件–点击出现桃心效果</h3><p><strong>在next/source/js/新建clicklove.js，添加如下内容：</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">!<span class="function"><span class="keyword">function</span>(<span class="params">e,t,a</span>)</span>&#123;<span class="function"><span class="keyword">function</span> <span class="title">n</span>(<span class="params"></span>)</span>&#123;c(<span class="string">&quot;.heart&#123;width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);&#125;.heart:after,.heart:before&#123;content: &#x27;&#x27;;width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;&#125;.heart:after&#123;top: -5px;&#125;.heart:before&#123;left: -5px;&#125;&quot;</span>),o(),r()&#125;<span class="function"><span class="keyword">function</span> <span class="title">r</span>(<span class="params"></span>)</span>&#123;<span class="keyword">for</span>(<span class="keyword">var</span> e=<span class="number">0</span>;e&lt;d.length;e++)d[e].alpha&lt;=<span class="number">0</span>?(t.body.removeChild(d[e].el),d.splice(e,<span class="number">1</span>)):(d[e].y--,d[e].scale+=<span class="number">.004</span>,d[e].alpha-=<span class="number">.013</span>,d[e].el.style.cssText=<span class="string">&quot;left:&quot;</span>+d[e].x+<span class="string">&quot;px;top:&quot;</span>+d[e].y+<span class="string">&quot;px;opacity:&quot;</span>+d[e].alpha+<span class="string">&quot;;transform:scale(&quot;</span>+d[e].scale+<span class="string">&quot;,&quot;</span>+d[e].scale+<span class="string">&quot;) rotate(45deg);background:&quot;</span>+d[e].color+<span class="string">&quot;;z-index:99999&quot;</span>);requestAnimationFrame(r)&#125;<span class="function"><span class="keyword">function</span> <span class="title">o</span>(<span class="params"></span>)</span>&#123;<span class="keyword">var</span> t=<span class="string">&quot;function&quot;</span>==<span class="keyword">typeof</span> e.onclick&amp;&amp;e.onclick;e.onclick=<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;t&amp;&amp;t(),i(e)&#125;&#125;<span class="function"><span class="keyword">function</span> <span class="title">i</span>(<span class="params">e</span>)</span>&#123;<span class="keyword">var</span> a=t.createElement(<span class="string">&quot;div&quot;</span>);a.className=<span class="string">&quot;heart&quot;</span>,d.push(&#123;<span class="attr">el</span>:a,<span class="attr">x</span>:e.clientX-<span class="number">5</span>,<span class="attr">y</span>:e.clientY-<span class="number">5</span>,<span class="attr">scale</span>:<span class="number">1</span>,<span class="attr">alpha</span>:<span class="number">1</span>,<span class="attr">color</span>:s()&#125;),t.body.appendChild(a)&#125;<span class="function"><span class="keyword">function</span> <span class="title">c</span>(<span class="params">e</span>)</span>&#123;<span class="keyword">var</span> a=t.createElement(<span class="string">&quot;style&quot;</span>);a.type=<span class="string">&quot;text/css&quot;</span>;<span class="keyword">try</span>&#123;a.appendChild(t.createTextNode(e))&#125;<span class="keyword">catch</span>(t)&#123;a.styleSheet.cssText=e&#125;t.getElementsByTagName(<span class="string">&quot;head&quot;</span>)[<span class="number">0</span>].appendChild(a)&#125;<span class="function"><span class="keyword">function</span> <span class="title">s</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span><span class="string">&quot;rgb(&quot;</span>+~~(<span class="number">255</span>*<span class="built_in">Math</span>.random())+<span class="string">&quot;,&quot;</span>+~~(<span class="number">255</span>*<span class="built_in">Math</span>.random())+<span class="string">&quot;,&quot;</span>+~~(<span class="number">255</span>*<span class="built_in">Math</span>.random())+<span class="string">&quot;)&quot;</span>&#125;<span class="keyword">var</span> d=[];e.requestAnimationFrame=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;<span class="built_in">setTimeout</span>(e,<span class="number">1e3</span>/<span class="number">60</span>)&#125;&#125;(),n()&#125;(<span class="built_in">window</span>,<span class="built_in">document</span>);</span><br></pre></td></tr></table></figure>
-
-<p><strong>修改layout.swig。在next /layout/_layout.swig文件末尾添加：</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;!-- 页面点击小红心 --&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/js/clicklove.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="13、主题配置文件–设置博客图像和图标"><a href="#13、主题配置文件–设置博客图像和图标" class="headerlink" title="13、主题配置文件–设置博客图像和图标"></a>13、主题配置文件–设置博客图像和图标</h3><p><strong>将所需要设置的头像和图标放入到hexo/source/images文件夹下：</strong></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226204557.png" alt="Image"></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226204617.png" alt="Image"></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226204623.png" alt="Image"></p>
-<h3 id="14、主题配置文件–开启文章的打赏功能"><a href="#14、主题配置文件–开启文章的打赏功能" class="headerlink" title="14、主题配置文件–开启文章的打赏功能"></a>14、主题配置文件–开启文章的打赏功能</h3><p><strong>准备支付宝和卫星的收款码，保存到下图中：</strong></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226204717.png" alt="Image"></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226204723.png" alt="Image"></p>
-<h3 id="15、主题配置文件–启用侧边栏社交链接，启用友情链接"><a href="#15、主题配置文件–启用侧边栏社交链接，启用友情链接" class="headerlink" title="15、主题配置文件–启用侧边栏社交链接，启用友情链接"></a>15、主题配置文件–启用侧边栏社交链接，启用友情链接</h3><p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226204750.png" alt="Image"></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226204750.png" alt="Image"></p>
-<h3 id="16、主题配置文件–设置标签云特效"><a href="#16、主题配置文件–设置标签云特效" class="headerlink" title="16、主题配置文件–设置标签云特效"></a>16、主题配置文件–设置标签云特效</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">安装hexo-tag-cloud插件</span><br><span class="line">在Blog中右键git bush here执行以下代码：</span><br><span class="line">npm install hexo-tag-cloud@^<span class="number">2.0</span>.* --save</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226204945.png" alt="Image"></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">查看标签云是否有效果，如果没有效果，swig用户还需要在主题文件夹找到文件 theme/next/layout/_macro/sidebar.swig, 然后在back2top.sidebar上方添加如下代码：</span><br><span class="line"></span><br><span class="line">&#123;% if site.tags.length &gt; 1 %&#125;</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/js/tagcloud.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/js/tagcanvas.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;widget-wrap&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">&quot;widget-title&quot;</span>&gt;</span>Tag Cloud<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;myCanvasContainer&quot;</span> <span class="attr">class</span>=<span class="string">&quot;widget tagcloud&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">width</span>=<span class="string">&quot;250&quot;</span> <span class="attr">height</span>=<span class="string">&quot;250&quot;</span> <span class="attr">id</span>=<span class="string">&quot;resCanvas&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width=100%&quot;</span>&gt;</span></span><br><span class="line">            &#123;&#123; list_tags() &#125;&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226205115.png" alt="Image"></p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">然后在主题配置文件中添加如下配置：</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># hexo-tag-cloud</span></span><br><span class="line"><span class="attr">tag_cloud:</span></span><br><span class="line">    <span class="attr">textFont:</span> <span class="string">Trebuchet</span> <span class="string">MS,</span> <span class="string">Helvetica</span></span><br><span class="line">    <span class="attr">textColor:</span> <span class="string">&#x27;#333&#x27;</span></span><br><span class="line">    <span class="attr">textHeight:</span> <span class="number">25</span></span><br><span class="line">    <span class="attr">outlineColor:</span> <span class="string">&#x27;#E2E1D1&#x27;</span></span><br><span class="line">    <span class="attr">maxSpeed:</span> <span class="number">0.1</span></span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226205200.png" alt="Image"></p>
-<h3 id="17、主题配置文件–添加回到顶部按钮"><a href="#17、主题配置文件–添加回到顶部按钮" class="headerlink" title="17、主题配置文件–添加回到顶部按钮"></a>17、主题配置文件–添加回到顶部按钮</h3><p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226205224.png" alt="Image"></p>
-<h3 id="18、主题配置文件–设置加载的效果"><a href="#18、主题配置文件–设置加载的效果" class="headerlink" title="18、主题配置文件–设置加载的效果"></a>18、主题配置文件–设置加载的效果</h3><p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226205252.png" alt="Image"></p>
-<h3 id="19、主题配置文件–图片懒加载模式"><a href="#19、主题配置文件–图片懒加载模式" class="headerlink" title="19、主题配置文件–图片懒加载模式"></a>19、主题配置文件–图片懒加载模式</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">在主题配置文件中修改lazyload为true</span></span><br><span class="line"><span class="attr">lazyload:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226205338.png" alt="Image"></p>
-<h3 id="20、主题配置文件–隐藏底部的强力驱动"><a href="#20、主题配置文件–隐藏底部的强力驱动" class="headerlink" title="20、主题配置文件–隐藏底部的强力驱动"></a>20、主题配置文件–隐藏底部的强力驱动</h3><p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226205405.png" alt="Image"></p>
-<h3 id="21、主题配置文件–设置代码块复制和代码高亮"><a href="#21、主题配置文件–设置代码块复制和代码高亮" class="headerlink" title="21、主题配置文件–设置代码块复制和代码高亮"></a>21、主题配置文件–设置代码块复制和代码高亮</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">next主题配置文件 中修改 codeblock 选项。</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226205522.png" alt="Image"></p>
-<h3 id="22、主题配置文件–修改文章底部tag图标"><a href="#22、主题配置文件–修改文章底部tag图标" class="headerlink" title="22、主题配置文件–修改文章底部tag图标"></a>22、主题配置文件–修改文章底部tag图标</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">next配置文件中将tag_icon:false改成true</span></span><br><span class="line"><span class="attr">tag_icon:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226205559.png" alt="Image"></p>
-<h3 id="23、主题配置文件–修改文章内链接文本样式"><a href="#23、主题配置文件–修改文章内链接文本样式" class="headerlink" title="23、主题配置文件–修改文章内链接文本样式"></a>23、主题配置文件–修改文章内链接文本样式</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">打开文件</span> <span class="string">themes/next/source/css/_common/components/post/post.styl，在末尾添加：</span></span><br><span class="line"></span><br><span class="line"><span class="string">.post-body</span> <span class="string">p</span> <span class="string">a</span> &#123;</span><br><span class="line">  <span class="attr">color:</span> <span class="comment">#0593d3;</span></span><br><span class="line">  <span class="attr">border-bottom:</span> <span class="string">none;</span></span><br><span class="line">  <span class="attr">border-bottom:</span> <span class="string">1px</span> <span class="string">solid</span> <span class="comment">#0593d3;</span></span><br><span class="line">  <span class="string">&amp;:hover</span> &#123;</span><br><span class="line">    <span class="attr">color:</span> <span class="comment">#fc6423;</span></span><br><span class="line">    <span class="attr">border-bottom:</span> <span class="string">none;</span></span><br><span class="line">    <span class="attr">border-bottom:</span> <span class="string">1px</span> <span class="string">solid</span> <span class="comment">#fc6423;</span></span><br><span class="line">  &#125;&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226205903.png" alt="Image"></p>
-<h3 id="24、主题配置文件–添加不蒜子统计功能"><a href="#24、主题配置文件–添加不蒜子统计功能" class="headerlink" title="24、主题配置文件–添加不蒜子统计功能"></a>24、主题配置文件–添加不蒜子统计功能</h3><p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226210152.png" alt="Image"></p>
-<h3 id="25、主题配置文件–新建一篇文章"><a href="#25、主题配置文件–新建一篇文章" class="headerlink" title="25、主题配置文件–新建一篇文章"></a>25、主题配置文件–新建一篇文章</h3><p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226210306.png" alt="Image"></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226210518.png" alt="Image"></p>
-<h3 id="26、主题配置文件–设置post文章模板"><a href="#26、主题配置文件–设置post文章模板" class="headerlink" title="26、主题配置文件–设置post文章模板"></a>26、主题配置文件–设置post文章模板</h3><p>新建一片文章，会发现头部只展示了title和date以及tags，我们可以修改post文章模板</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226210627.png" alt="Image"></p>
-<p>可以修改为如下：</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226210516.png" alt="image-20211226210516310"></p>
-<p>多样方式可查看以下内容：</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226210608.png" alt="Image"></p>
-<h3 id="27、主题配置文件–给文章添加阴影【暂时没有效果】"><a href="#27、主题配置文件–给文章添加阴影【暂时没有效果】" class="headerlink" title="27、主题配置文件–给文章添加阴影【暂时没有效果】"></a>27、主题配置文件–给文章添加阴影【暂时没有效果】</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">打开 /themes/next/source/css/ _common\components\post下的post.styl文件</span><br><span class="line">找到.post_block</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226205753.png" alt="Image"></p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">//</span> <span class="string">主页文章添加阴影效果</span></span><br><span class="line"><span class="string">.post_block</span> &#123;</span><br><span class="line">   <span class="attr">opacity:</span> <span class="number">0</span><span class="string">;</span></span><br><span class="line">   <span class="attr">margin-top:</span> <span class="string">60px;</span></span><br><span class="line">   <span class="attr">margin-bottom:</span> <span class="string">60px;</span></span><br><span class="line">   <span class="attr">padding:</span> <span class="string">25px;</span></span><br><span class="line">   <span class="string">-webkit-box-shadow:</span> <span class="number">0</span> <span class="number">0</span> <span class="string">5px</span> <span class="string">rgba(202</span>, <span class="number">203</span>, <span class="number">203</span>, <span class="number">.5</span><span class="string">);</span></span><br><span class="line">   <span class="string">-moz-box-shadow:</span> <span class="number">0</span> <span class="number">0</span> <span class="string">5px</span> <span class="string">rgba(202</span>, <span class="number">203</span>, <span class="number">204</span>, <span class="number">.5</span><span class="string">);</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226205812.png" alt="Image"></p>
-<h3 id="28、主题配置文件–文章末尾添加文章结束标记【暂时没有效果】"><a href="#28、主题配置文件–文章末尾添加文章结束标记【暂时没有效果】" class="headerlink" title="28、主题配置文件–文章末尾添加文章结束标记【暂时没有效果】"></a>28、主题配置文件–文章末尾添加文章结束标记【暂时没有效果】</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">在主题/layout/_macro 下新建 passage-end-tag.swig 文件，并添加以下代码：</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    &#123;% if not is_index %&#125;</span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;text-align:center;color:#555;font-size:14px;&quot;</span>&gt;</span></span><br><span class="line">        -------------本文结束 <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;fa fa-heart&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span> 感谢阅读-------------</span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    &#123;% endif %&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226205956.png" alt="Image"></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">打开 /themes/next/layout/_macro/post.swig 文件，在 END POST BODY 后面引入 passage-end-tag.swig，如下:</span><br><span class="line"></span><br><span class="line">    &#123;#####################&#125;</span><br><span class="line">    &#123;### END POST BODY ###&#125;</span><br><span class="line">    &#123;#####################&#125;</span><br><span class="line">     <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    &#123;% if theme.passage_end_tag.enable and not is_index %&#125;</span><br><span class="line">    &#123;% include &#x27;passage-end-tag.swig&#x27; %&#125;</span><br><span class="line">    &#123;% endif %&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226210041.png" alt="Image"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">在主题配置文件末尾添加以下配置：</span><br><span class="line">passage_end_tag:</span><br><span class="line">  enable: true</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226210111.png" alt="Image"></p>
-]]></content>
-      <categories>
-        <category>搭建博客</category>
-      </categories>
-      <tags>
-        <tag>搭建博客</tag>
       </tags>
   </entry>
   <entry>
@@ -462,5 +333,246 @@
       <tags>
         <tag>搭建博客</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>hexo搭建博客三</title>
+    <url>/2021/12/26/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E4%B8%89/</url>
+    <content><![CDATA[<img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226184506.jpeg" alt="img" style="zoom: 25%;" />
+
+<h1 id="启用next主题，并配置"><a href="#启用next主题，并配置" class="headerlink" title="启用next主题，并配置"></a>启用next主题，并配置</h1><span id="more"></span>
+
+<p>[toc]</p>
+<h1 id="一、设置博客主题"><a href="#一、设置博客主题" class="headerlink" title="一、设置博客主题"></a>一、设置博客主题</h1><h3 id="1、下载next主题"><a href="#1、下载next主题" class="headerlink" title="1、下载next主题"></a>1、下载next主题</h3><h3 id="2、站点配置文件–启用next主题"><a href="#2、站点配置文件–启用next主题" class="headerlink" title="2、站点配置文件–启用next主题"></a>2、站点配置文件–启用next主题</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">将下载好的next主题，解压后放到Blog-&gt;Themes文件夹中，并改名为next</span><br><span class="line">设置站点配置文件中的theme</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226201159.png" alt="Image"></p>
+<h3 id="3、站点配置文件–设置博客文字描述和中文语言"><a href="#3、站点配置文件–设置博客文字描述和中文语言" class="headerlink" title="3、站点配置文件–设置博客文字描述和中文语言"></a>3、站点配置文件–设置博客文字描述和中文语言</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">云飞の博客</span>               <span class="comment"># 网站的标题</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">&#x27;&#x27;</span>                   <span class="comment"># 子标题</span></span><br><span class="line"><span class="attr">description:</span>                   <span class="comment"># 描述</span></span><br><span class="line"><span class="attr">keywords:</span> <span class="string">Java</span>  <span class="string">目标</span>  <span class="string">坚持</span>      <span class="comment"># 网站关键字</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">云飞</span>                    <span class="comment"># 作者</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">zh-CN</span>                 <span class="comment"># 网站采用的语言   </span></span><br><span class="line"><span class="attr">timezone:</span> <span class="string">Asia/Shanghai</span>         <span class="comment"># 网站的时区</span></span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226201528.png" alt="Image"></p>
+<h3 id="4、站点配置文件–设置首页点击阅读全文"><a href="#4、站点配置文件–设置首页点击阅读全文" class="headerlink" title="4、站点配置文件–设置首页点击阅读全文"></a>4、站点配置文件–设置首页点击阅读全文</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">安装插件：</span><br><span class="line">npm install hexo-excerpt --save</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226202438.png" alt="Image"></p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">在站点配置文件中添加以下代码：</span></span><br><span class="line"><span class="attr">excerpt:</span></span><br><span class="line">  <span class="attr">depth:</span> <span class="number">5</span>  </span><br><span class="line">  <span class="attr">excerpt_excludes:</span> []</span><br><span class="line">  <span class="attr">more_excludes:</span> []</span><br><span class="line">  <span class="attr">hideWholePostExcerpts:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226202534.png" alt="Image"></p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">在主题配置文件中添加以下代码(或者ctrl+F找到这个位置，修改为true)：</span></span><br><span class="line"><span class="attr">excerpt_description:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226202615.png" alt="Image"></p>
+<h3 id="5、站点配置文件–添加搜索功能"><a href="#5、站点配置文件–添加搜索功能" class="headerlink" title="5、站点配置文件–添加搜索功能"></a>5、站点配置文件–添加搜索功能</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">在Blog中右键git bush here执行以下代码：</span><br><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226202920.png" alt="Image"></p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">在站点配置文件任意位置添加如下代码：</span></span><br><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br><span class="line">  <span class="attr">limit:</span> <span class="number">10000</span></span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226203014.png" alt="Image"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">在主题配置文件中修改以下内容</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226203036.png" alt="Image"></p>
+<h3 id="6、站点配置文件–设置字数统计和预计阅读时长"><a href="#6、站点配置文件–设置字数统计和预计阅读时长" class="headerlink" title="6、站点配置文件–设置字数统计和预计阅读时长"></a>6、站点配置文件–设置字数统计和预计阅读时长</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">在Blog中右键git bush here执行以下代码：</span><br><span class="line">npm install hexo-symbols-count-time --save</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226203349.png" alt="Image"></p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">打开站点配置文件，任意位置添加如下代码：</span></span><br><span class="line"><span class="attr">symbols_count_time:</span></span><br><span class="line">  <span class="attr">symbols:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">time:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_symbols:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_time:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">打开主题配置文件，任意位置添加如下代码：</span></span><br><span class="line"><span class="attr">symbols_count_time:</span></span><br><span class="line">  <span class="attr">separated_meta:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">item_text_post:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">item_text_total:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">awl:</span> <span class="number">2</span></span><br><span class="line">  <span class="attr">wpm:</span> <span class="number">275</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="7、主题配置文件–修改hexo主题样式"><a href="#7、主题配置文件–修改hexo主题样式" class="headerlink" title="7、主题配置文件–修改hexo主题样式"></a>7、主题配置文件–修改hexo主题样式</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">ctrl+F找到Schemes，将Gemini前面的#</span> <span class="string">号去掉</span></span><br><span class="line"><span class="comment">#Schemes</span></span><br><span class="line"><span class="comment">#scheme: Muse</span></span><br><span class="line"><span class="comment">#scheme: Mist</span></span><br><span class="line"><span class="comment">#scheme: Pisces</span></span><br><span class="line"><span class="attr">scheme:</span> <span class="string">Gemini</span></span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226201728.png" alt="Image"></p>
+<h3 id="8、主题配置文件–增加标签页和分类页以及关于页"><a href="#8、主题配置文件–增加标签页和分类页以及关于页" class="headerlink" title="8、主题配置文件–增加标签页和分类页以及关于页"></a>8、主题配置文件–增加标签页和分类页以及关于页</h3><p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226202059.png" alt="Image"></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">在Blog中右键git bush here，输入以下命令：</span><br><span class="line">hexo <span class="keyword">new</span> page <span class="string">&quot;about&quot;</span>        #关于页</span><br><span class="line">hexo <span class="keyword">new</span> page <span class="string">&quot;tags&quot;</span>         #标签页</span><br><span class="line">hexo <span class="keyword">new</span> page <span class="string">&quot;categories&quot;</span>   #分类页</span><br><span class="line">hexo <span class="keyword">new</span> page <span class="string">&quot;archives&quot;</span>     #归档页</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226202136.png" alt="Image"></p>
+<p><strong>打开Blog中source，可以看见如下文件夹已经生成了</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226202212.png" alt="Image"></p>
+<p><strong>修改上面四个文件夹中各自的.md结尾的文件</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226202302.png" alt="image-20211226202302475"></p>
+<h3 id="9、主题配置文件–添加文章版权声明"><a href="#9、主题配置文件–添加文章版权声明" class="headerlink" title="9、主题配置文件–添加文章版权声明"></a>9、主题配置文件–添加文章版权声明</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">主题配置文件中设置 <span class="literal">true</span>：</span><br><span class="line"><span class="attr">creative_commons</span>:</span><br><span class="line">  license: by-nc-sa</span><br><span class="line">  <span class="attr">sidebar</span>: <span class="literal">false</span></span><br><span class="line">  <span class="attr">post</span>: <span class="literal">true</span></span><br><span class="line">  <span class="attr">language</span>:</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226204053.png" alt="Image"></p>
+<h3 id="10、主题配置文件–设置左上角或又上角github图标"><a href="#10、主题配置文件–设置左上角或又上角github图标" class="headerlink" title="10、主题配置文件–设置左上角或又上角github图标"></a>10、主题配置文件–设置左上角或又上角github图标</h3><p>复制自己喜欢的github图标代码<a href="https://tholman.com/github-corners/">https://tholman.com/github-corners/</a></p>
+<p>将上面复制的代码，复制到下图位置：</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226204205.png" alt="Image"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226204230.png" alt="Image"></p>
+<p>修改github地址：</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226204236.png" alt="Image"></p>
+<h3 id="11、主题配置文件–添加图片放大预览功能"><a href="#11、主题配置文件–添加图片放大预览功能" class="headerlink" title="11、主题配置文件–添加图片放大预览功能"></a>11、主题配置文件–添加图片放大预览功能</h3><p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226204257.png" alt="Image"></p>
+<h3 id="12、主题配置文件–点击出现桃心效果"><a href="#12、主题配置文件–点击出现桃心效果" class="headerlink" title="12、主题配置文件–点击出现桃心效果"></a>12、主题配置文件–点击出现桃心效果</h3><p><strong>在next/source/js/新建clicklove.js，添加如下内容：</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">!<span class="function"><span class="keyword">function</span>(<span class="params">e,t,a</span>)</span>&#123;<span class="function"><span class="keyword">function</span> <span class="title">n</span>(<span class="params"></span>)</span>&#123;c(<span class="string">&quot;.heart&#123;width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);&#125;.heart:after,.heart:before&#123;content: &#x27;&#x27;;width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;&#125;.heart:after&#123;top: -5px;&#125;.heart:before&#123;left: -5px;&#125;&quot;</span>),o(),r()&#125;<span class="function"><span class="keyword">function</span> <span class="title">r</span>(<span class="params"></span>)</span>&#123;<span class="keyword">for</span>(<span class="keyword">var</span> e=<span class="number">0</span>;e&lt;d.length;e++)d[e].alpha&lt;=<span class="number">0</span>?(t.body.removeChild(d[e].el),d.splice(e,<span class="number">1</span>)):(d[e].y--,d[e].scale+=<span class="number">.004</span>,d[e].alpha-=<span class="number">.013</span>,d[e].el.style.cssText=<span class="string">&quot;left:&quot;</span>+d[e].x+<span class="string">&quot;px;top:&quot;</span>+d[e].y+<span class="string">&quot;px;opacity:&quot;</span>+d[e].alpha+<span class="string">&quot;;transform:scale(&quot;</span>+d[e].scale+<span class="string">&quot;,&quot;</span>+d[e].scale+<span class="string">&quot;) rotate(45deg);background:&quot;</span>+d[e].color+<span class="string">&quot;;z-index:99999&quot;</span>);requestAnimationFrame(r)&#125;<span class="function"><span class="keyword">function</span> <span class="title">o</span>(<span class="params"></span>)</span>&#123;<span class="keyword">var</span> t=<span class="string">&quot;function&quot;</span>==<span class="keyword">typeof</span> e.onclick&amp;&amp;e.onclick;e.onclick=<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;t&amp;&amp;t(),i(e)&#125;&#125;<span class="function"><span class="keyword">function</span> <span class="title">i</span>(<span class="params">e</span>)</span>&#123;<span class="keyword">var</span> a=t.createElement(<span class="string">&quot;div&quot;</span>);a.className=<span class="string">&quot;heart&quot;</span>,d.push(&#123;<span class="attr">el</span>:a,<span class="attr">x</span>:e.clientX-<span class="number">5</span>,<span class="attr">y</span>:e.clientY-<span class="number">5</span>,<span class="attr">scale</span>:<span class="number">1</span>,<span class="attr">alpha</span>:<span class="number">1</span>,<span class="attr">color</span>:s()&#125;),t.body.appendChild(a)&#125;<span class="function"><span class="keyword">function</span> <span class="title">c</span>(<span class="params">e</span>)</span>&#123;<span class="keyword">var</span> a=t.createElement(<span class="string">&quot;style&quot;</span>);a.type=<span class="string">&quot;text/css&quot;</span>;<span class="keyword">try</span>&#123;a.appendChild(t.createTextNode(e))&#125;<span class="keyword">catch</span>(t)&#123;a.styleSheet.cssText=e&#125;t.getElementsByTagName(<span class="string">&quot;head&quot;</span>)[<span class="number">0</span>].appendChild(a)&#125;<span class="function"><span class="keyword">function</span> <span class="title">s</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span><span class="string">&quot;rgb(&quot;</span>+~~(<span class="number">255</span>*<span class="built_in">Math</span>.random())+<span class="string">&quot;,&quot;</span>+~~(<span class="number">255</span>*<span class="built_in">Math</span>.random())+<span class="string">&quot;,&quot;</span>+~~(<span class="number">255</span>*<span class="built_in">Math</span>.random())+<span class="string">&quot;)&quot;</span>&#125;<span class="keyword">var</span> d=[];e.requestAnimationFrame=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;<span class="built_in">setTimeout</span>(e,<span class="number">1e3</span>/<span class="number">60</span>)&#125;&#125;(),n()&#125;(<span class="built_in">window</span>,<span class="built_in">document</span>);</span><br></pre></td></tr></table></figure>
+
+<p><strong>修改layout.swig。在next /layout/_layout.swig文件末尾添加：</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;!-- 页面点击小红心 --&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/js/clicklove.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="13、主题配置文件–设置博客图像和图标"><a href="#13、主题配置文件–设置博客图像和图标" class="headerlink" title="13、主题配置文件–设置博客图像和图标"></a>13、主题配置文件–设置博客图像和图标</h3><p><strong>将所需要设置的头像和图标放入到hexo/source/images文件夹下：</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226204557.png" alt="Image"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226204617.png" alt="Image"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226204623.png" alt="Image"></p>
+<h3 id="14、主题配置文件–开启文章的打赏功能"><a href="#14、主题配置文件–开启文章的打赏功能" class="headerlink" title="14、主题配置文件–开启文章的打赏功能"></a>14、主题配置文件–开启文章的打赏功能</h3><p><strong>准备支付宝和卫星的收款码，保存到下图中：</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226204717.png" alt="Image"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226204723.png" alt="Image"></p>
+<h3 id="15、主题配置文件–启用侧边栏社交链接，启用友情链接"><a href="#15、主题配置文件–启用侧边栏社交链接，启用友情链接" class="headerlink" title="15、主题配置文件–启用侧边栏社交链接，启用友情链接"></a>15、主题配置文件–启用侧边栏社交链接，启用友情链接</h3><p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226204750.png" alt="Image"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226204750.png" alt="Image"></p>
+<h3 id="16、主题配置文件–设置标签云特效"><a href="#16、主题配置文件–设置标签云特效" class="headerlink" title="16、主题配置文件–设置标签云特效"></a>16、主题配置文件–设置标签云特效</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">安装hexo-tag-cloud插件</span><br><span class="line">在Blog中右键git bush here执行以下代码：</span><br><span class="line">npm install hexo-tag-cloud@^<span class="number">2.0</span>.* --save</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226204945.png" alt="Image"></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">查看标签云是否有效果，如果没有效果，swig用户还需要在主题文件夹找到文件 theme/next/layout/_macro/sidebar.swig, 然后在back2top.sidebar上方添加如下代码：</span><br><span class="line"></span><br><span class="line">&#123;% if site.tags.length &gt; 1 %&#125;</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/js/tagcloud.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/js/tagcanvas.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;widget-wrap&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h3</span> <span class="attr">class</span>=<span class="string">&quot;widget-title&quot;</span>&gt;</span>Tag Cloud<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;myCanvasContainer&quot;</span> <span class="attr">class</span>=<span class="string">&quot;widget tagcloud&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">width</span>=<span class="string">&quot;250&quot;</span> <span class="attr">height</span>=<span class="string">&quot;250&quot;</span> <span class="attr">id</span>=<span class="string">&quot;resCanvas&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width=100%&quot;</span>&gt;</span></span><br><span class="line">            &#123;&#123; list_tags() &#125;&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226205115.png" alt="Image"></p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">然后在主题配置文件中添加如下配置：</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># hexo-tag-cloud</span></span><br><span class="line"><span class="attr">tag_cloud:</span></span><br><span class="line">    <span class="attr">textFont:</span> <span class="string">Trebuchet</span> <span class="string">MS,</span> <span class="string">Helvetica</span></span><br><span class="line">    <span class="attr">textColor:</span> <span class="string">&#x27;#333&#x27;</span></span><br><span class="line">    <span class="attr">textHeight:</span> <span class="number">25</span></span><br><span class="line">    <span class="attr">outlineColor:</span> <span class="string">&#x27;#E2E1D1&#x27;</span></span><br><span class="line">    <span class="attr">maxSpeed:</span> <span class="number">0.1</span></span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226205200.png" alt="Image"></p>
+<h3 id="17、主题配置文件–添加回到顶部按钮"><a href="#17、主题配置文件–添加回到顶部按钮" class="headerlink" title="17、主题配置文件–添加回到顶部按钮"></a>17、主题配置文件–添加回到顶部按钮</h3><p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226205224.png" alt="Image"></p>
+<h3 id="18、主题配置文件–设置加载的效果"><a href="#18、主题配置文件–设置加载的效果" class="headerlink" title="18、主题配置文件–设置加载的效果"></a>18、主题配置文件–设置加载的效果</h3><p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226205252.png" alt="Image"></p>
+<h3 id="19、主题配置文件–图片懒加载模式"><a href="#19、主题配置文件–图片懒加载模式" class="headerlink" title="19、主题配置文件–图片懒加载模式"></a>19、主题配置文件–图片懒加载模式</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">在主题配置文件中修改lazyload为true</span></span><br><span class="line"><span class="attr">lazyload:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226205338.png" alt="Image"></p>
+<h3 id="20、主题配置文件–隐藏底部的强力驱动"><a href="#20、主题配置文件–隐藏底部的强力驱动" class="headerlink" title="20、主题配置文件–隐藏底部的强力驱动"></a>20、主题配置文件–隐藏底部的强力驱动</h3><p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226205405.png" alt="Image"></p>
+<h3 id="21、主题配置文件–设置代码块复制和代码高亮"><a href="#21、主题配置文件–设置代码块复制和代码高亮" class="headerlink" title="21、主题配置文件–设置代码块复制和代码高亮"></a>21、主题配置文件–设置代码块复制和代码高亮</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">next主题配置文件 中修改 codeblock 选项。</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226205522.png" alt="Image"></p>
+<h3 id="22、主题配置文件–修改文章底部tag图标"><a href="#22、主题配置文件–修改文章底部tag图标" class="headerlink" title="22、主题配置文件–修改文章底部tag图标"></a>22、主题配置文件–修改文章底部tag图标</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">next配置文件中将tag_icon:false改成true</span></span><br><span class="line"><span class="attr">tag_icon:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226205559.png" alt="Image"></p>
+<h3 id="23、主题配置文件–修改文章内链接文本样式"><a href="#23、主题配置文件–修改文章内链接文本样式" class="headerlink" title="23、主题配置文件–修改文章内链接文本样式"></a>23、主题配置文件–修改文章内链接文本样式</h3><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">打开文件</span> <span class="string">themes/next/source/css/_common/components/post/post.styl，在末尾添加：</span></span><br><span class="line"></span><br><span class="line"><span class="string">.post-body</span> <span class="string">p</span> <span class="string">a</span> &#123;</span><br><span class="line">  <span class="attr">color:</span> <span class="comment">#0593d3;</span></span><br><span class="line">  <span class="attr">border-bottom:</span> <span class="string">none;</span></span><br><span class="line">  <span class="attr">border-bottom:</span> <span class="string">1px</span> <span class="string">solid</span> <span class="comment">#0593d3;</span></span><br><span class="line">  <span class="string">&amp;:hover</span> &#123;</span><br><span class="line">    <span class="attr">color:</span> <span class="comment">#fc6423;</span></span><br><span class="line">    <span class="attr">border-bottom:</span> <span class="string">none;</span></span><br><span class="line">    <span class="attr">border-bottom:</span> <span class="string">1px</span> <span class="string">solid</span> <span class="comment">#fc6423;</span></span><br><span class="line">  &#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226205903.png" alt="Image"></p>
+<h3 id="24、主题配置文件–添加不蒜子统计功能"><a href="#24、主题配置文件–添加不蒜子统计功能" class="headerlink" title="24、主题配置文件–添加不蒜子统计功能"></a>24、主题配置文件–添加不蒜子统计功能</h3><p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226210152.png" alt="Image"></p>
+<h3 id="25、主题配置文件–新建一篇文章"><a href="#25、主题配置文件–新建一篇文章" class="headerlink" title="25、主题配置文件–新建一篇文章"></a>25、主题配置文件–新建一篇文章</h3><p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226210306.png" alt="Image"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226210518.png" alt="Image"></p>
+<h3 id="26、主题配置文件–设置post文章模板"><a href="#26、主题配置文件–设置post文章模板" class="headerlink" title="26、主题配置文件–设置post文章模板"></a>26、主题配置文件–设置post文章模板</h3><p>新建一片文章，会发现头部只展示了title和date以及tags，我们可以修改post文章模板</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226210627.png" alt="Image"></p>
+<p>可以修改为如下：</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226210516.png" alt="image-20211226210516310"></p>
+<p>多样方式可查看以下内容：</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226210608.png" alt="Image"></p>
+<h3 id="27、主题配置文件–给文章添加阴影【暂时没有效果】"><a href="#27、主题配置文件–给文章添加阴影【暂时没有效果】" class="headerlink" title="27、主题配置文件–给文章添加阴影【暂时没有效果】"></a>27、主题配置文件–给文章添加阴影【暂时没有效果】</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">打开 /themes/next/source/css/ _common\components\post下的post.styl文件</span><br><span class="line">找到.post_block</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226205753.png" alt="Image"></p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">//</span> <span class="string">主页文章添加阴影效果</span></span><br><span class="line"><span class="string">.post_block</span> &#123;</span><br><span class="line">   <span class="attr">opacity:</span> <span class="number">0</span><span class="string">;</span></span><br><span class="line">   <span class="attr">margin-top:</span> <span class="string">60px;</span></span><br><span class="line">   <span class="attr">margin-bottom:</span> <span class="string">60px;</span></span><br><span class="line">   <span class="attr">padding:</span> <span class="string">25px;</span></span><br><span class="line">   <span class="string">-webkit-box-shadow:</span> <span class="number">0</span> <span class="number">0</span> <span class="string">5px</span> <span class="string">rgba(202</span>, <span class="number">203</span>, <span class="number">203</span>, <span class="number">.5</span><span class="string">);</span></span><br><span class="line">   <span class="string">-moz-box-shadow:</span> <span class="number">0</span> <span class="number">0</span> <span class="string">5px</span> <span class="string">rgba(202</span>, <span class="number">203</span>, <span class="number">204</span>, <span class="number">.5</span><span class="string">);</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226205812.png" alt="Image"></p>
+<h3 id="28、主题配置文件–文章末尾添加文章结束标记【暂时没有效果】"><a href="#28、主题配置文件–文章末尾添加文章结束标记【暂时没有效果】" class="headerlink" title="28、主题配置文件–文章末尾添加文章结束标记【暂时没有效果】"></a>28、主题配置文件–文章末尾添加文章结束标记【暂时没有效果】</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">在主题/layout/_macro 下新建 passage-end-tag.swig 文件，并添加以下代码：</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    &#123;% if not is_index %&#125;</span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;text-align:center;color:#555;font-size:14px;&quot;</span>&gt;</span></span><br><span class="line">        -------------本文结束 <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;fa fa-heart&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span> 感谢阅读-------------</span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    &#123;% endif %&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226205956.png" alt="Image"></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">打开 /themes/next/layout/_macro/post.swig 文件，在 END POST BODY 后面引入 passage-end-tag.swig，如下:</span><br><span class="line"></span><br><span class="line">    &#123;#####################&#125;</span><br><span class="line">    &#123;### END POST BODY ###&#125;</span><br><span class="line">    &#123;#####################&#125;</span><br><span class="line">     <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    &#123;% if theme.passage_end_tag.enable and not is_index %&#125;</span><br><span class="line">    &#123;% include &#x27;passage-end-tag.swig&#x27; %&#125;</span><br><span class="line">    &#123;% endif %&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226210041.png" alt="Image"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">在主题配置文件末尾添加以下配置：</span><br><span class="line">passage_end_tag:</span><br><span class="line">  enable: true</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226210111.png" alt="Image"></p>
+]]></content>
+      <categories>
+        <category>搭建博客</category>
+      </categories>
+      <tags>
+        <tag>搭建博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>日志实现JUL</title>
+    <url>/2022/01/09/%E6%97%A5%E5%BF%97%E5%AE%9E%E7%8E%B0JUL/</url>
+    <content><![CDATA[<span id="more"></span>
+
+<p>[toc]</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>数组</title>
+    <url>/2022/01/07/%E6%95%B0%E7%BB%84/</url>
+    <content><![CDATA[<span id="more"></span>
+
+<p>[toc]</p>
+]]></content>
+      <categories>
+        <category>javase</category>
+      </categories>
+      <tags>
+        <tag>javase</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>日志实现Log4j</title>
+    <url>/2022/01/09/%E6%97%A5%E5%BF%97%E5%AE%9E%E7%8E%B0Log4j/</url>
+    <content><![CDATA[<span id="more"></span>
+
+<p>[toc]</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>日志实现Log4j2</title>
+    <url>/2022/01/09/%E6%97%A5%E5%BF%97%E5%AE%9E%E7%8E%B0Log4j2/</url>
+    <content><![CDATA[<span id="more"></span>
+
+<p>[toc]</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>日志概述</title>
+    <url>/2022/01/09/%E6%97%A5%E5%BF%97%E6%A6%82%E8%BF%B0/</url>
+    <content><![CDATA[<p>[TOC]</p>
+<span id="more"></span>
+
+<h1 id="一、日志概述"><a href="#一、日志概述" class="headerlink" title="一、日志概述"></a>一、日志概述</h1><p>只要程序员投身在实际的学习和生产环境中，就会对日志的重要性有着充分的认知，尤其是对于web以及更高级的应用。在很多情况下，日志可能是我们了解应用如何执行的唯一方式。</p>
+<p>但是现实是很多程序员对于日志的记录认知比较肤浅，认为日志的记录输出是一件很简单而且会自动发生的事情，所以会经常忽略和日志相关的问题。</p>
+<h1 id="二、日志文件"><a href="#二、日志文件" class="headerlink" title="二、日志文件"></a>二、日志文件</h1><p>日志文件是用于记录系统操作时间的文件集合。</p>
+<p>日志文件它具有处理历史数据，诊断问题的追踪以及理解系统的活动等重要的作用。</p>
+<h1 id="三、调试日志"><a href="#三、调试日志" class="headerlink" title="三、调试日志"></a>三、调试日志</h1><p>在软件开发中，我们要经常的调试程序，或者做一些状态的输出，便于我们查询程序的运行状况。为了让我们能够更加灵活且方便的控制这些调试信息，我们肯定是需要更加专业的日志技术。我们平时在调试程序的过程中所使用的肯定就是专业开发工具自带的debug功能，可以实时查看程序运行情况，不能有效保存运行情况的信息。调试日志时为了更加方便的去重现这些问题。</p>
+<h1 id="四、系统日志"><a href="#四、系统日志" class="headerlink" title="四、系统日志"></a>四、系统日志</h1><p>系统日志是用来记录系统中的硬件、软件和系统相关的信息。同时还可以监视系统中发生的事件，用户可以通过它来检查错误的发生原因，或者寻找到攻击时留下的痕迹。系统日志包括系统日志、应用日志和安全日志这几种分类。</p>
+<h1 id="五、日志框架"><a href="#五、日志框架" class="headerlink" title="五、日志框架"></a>五、日志框架</h1><h2 id="5-1、日志框架的作用"><a href="#5-1、日志框架的作用" class="headerlink" title="5.1、日志框架的作用"></a>5.1、日志框架的作用</h2><ul>
+<li>控制日志输出的内容和格式</li>
+<li>控制日志输出的位置</li>
+<li>日志文件相关的优化，如：异步操作、归档、压缩…</li>
+<li>日志系统的维护</li>
+<li>面向接口的开发–日志门面</li>
+</ul>
+<h2 id="5-2、为什么使用日志框架（why）"><a href="#5-2、为什么使用日志框架（why）" class="headerlink" title="5.2、为什么使用日志框架（why）"></a>5.2、为什么使用日志框架（why）</h2><p>因为软件系统发展到了今天，非常的复杂，特别是服务器的软件涉及到的知识和内容问题非常的多。对于日志记录来讲，在某些方面使用被人研发好的成熟的框架，这就相当于让别人帮你完成一些基础的工作。你只需要集中精力去完成业务逻辑就可以了。</p>
+<p>比如事物处理，日志记录等一些安全性的问题，我们使用框架去做不会影响业务的开发效率。</p>
+<p>同时框架也是在不断升级的，我们可以不断的享受框架升级归我们带来的好处。</p>
+<h1 id="六、目前java流行的日志框架"><a href="#六、目前java流行的日志框架" class="headerlink" title="六、目前java流行的日志框架"></a>六、目前java流行的日志框架</h1><ul>
+<li>JUL  :java util logging【java原生的日志框架】</li>
+<li>Log4j ：apache的一个开源项目</li>
+<li>logback :由log4j之父做的另一个开源项目，可靠、通用且灵活的java日志框架</li>
+<li>log4j2：log4j官方的第二个版本，各个方面都是与logback及其相似、且具有插件式结构、配置文件优化等特征</li>
+<li>Springboot1.4版本以后就不再log4j，所以第二个版本Log4j2营运而生</li>
+</ul>
+<h1 id="七、日志门面和日志实现的区别"><a href="#七、日志门面和日志实现的区别" class="headerlink" title="七、日志门面和日志实现的区别"></a>七、日志门面和日志实现的区别</h1><p><strong>日志实现：</strong>JUL、Logback、Log4j、Log4j2</p>
+<p>日志实现：用来方便有效的记录日志信息， 每一种日志框架都有自己单独的API，要使用对应的框架就要使用对应的API，这就大大的增加了应用程序代码对于日志框架的耦合性。</p>
+<p><strong>日志门面：</strong> JCL、SLF4J</p>
+<p>日志门面： 我们使用了日志门面技术之后，对于应用程序来说，无论底层的日志框架如何改变，应用程序不需要修改任意一行代码，就可以直接上线了。</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20220109201148.png" alt="image-20220109201140502"></p>
+]]></content>
+      <categories>
+        <category>日志框架</category>
+      </categories>
+      <tags>
+        <tag>日志框架</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>日志门面JCL</title>
+    <url>/2022/01/09/%E6%97%A5%E5%BF%97%E9%97%A8%E9%9D%A2JCL/</url>
+    <content><![CDATA[<span id="more"></span>
+
+<p>[toc]</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>日志实现Logback</title>
+    <url>/2022/01/09/%E6%97%A5%E5%BF%97%E5%AE%9E%E7%8E%B0Logback/</url>
+    <content><![CDATA[<span id="more"></span>
+
+<p>[toc]</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>日志门面SLF4J</title>
+    <url>/2022/01/09/%E6%97%A5%E5%BF%97%E9%97%A8%E9%9D%A2SLF4J/</url>
+    <content><![CDATA[<span id="more"></span>
+
+<p>[toc]</p>
+]]></content>
   </entry>
 </search>
