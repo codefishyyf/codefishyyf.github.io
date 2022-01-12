@@ -46,6 +46,8 @@
 <h2 id="2、创建maven工程"><a href="#2、创建maven工程" class="headerlink" title="2、创建maven工程"></a>2、创建maven工程</h2><p><strong>第一步：添加web模块</strong></p>
 <p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20220111234123.png" alt="image-20220111234123345"></p>
 <p><strong>第二步：打包方式war</strong></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">packaging</span>&gt;</span>war<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p><strong>第三步：引入依赖</strong></p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--SpringMVC--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-webmvc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.3.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--日志--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>ch.qos.logback<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>logback-classic<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--ServletAPI--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>javax.servlet-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.1.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--Spring5和Thymeleaf整合包--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.thymeleaf<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>thymeleaf-spring5<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0.12.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
@@ -78,16 +80,75 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//@RequestMapping注解：处理请求和控制器方法之间的映射关系</span></span><br><span class="line"><span class="comment">//@RequestMapping注解的value属性可以通过请求地址匹配请求，/表示的当前工程的上下文路径</span></span><br><span class="line"><span class="comment">//localhost:8080/SpringMVC/</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">index</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="comment">//设置视图名称</span></span><br><span class="line">	<span class="keyword">return</span> <span class="string">&quot;index&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><strong>b&gt;通过超链接跳转到指定页面</strong><br>        在主页index.html中设置超链接</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span> <span class="attr">xmlns:th</span>=<span class="string">&quot;http://www.thymeleaf.org&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>首页<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>hello,欢迎codefishyyf学习SpringMVC<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--路径分为绝对路径和相对路径：</span></span><br><span class="line"><span class="comment">    以/开头的路径为绝对路径，绝对路径分为浏览器解析的和服务器解析的</span></span><br><span class="line"><span class="comment">    超链接中的绝对路径就是由浏览器解析的，这个时候/表示：localhost:8080</span></span><br><span class="line"><span class="comment">    所以需要加上上下文路径。/SpringMVC_demo1。由于tomcat中的上下文路径是可以修改的，</span></span><br><span class="line"><span class="comment">    所以使用thymeleaf语法中的来动态获取上下文路径。</span></span><br><span class="line"><span class="comment">    &lt;a th:href=&quot;@&#123;/target&#125;&quot;&gt;访问目标页面target.html&lt;/a&gt;</span></span><br><span class="line"><span class="comment">    这样thymeleaf就会自动给我们加上上下文路径。</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--&lt;a href=&quot;/SpringMVC_demo1/target&quot;&gt;访问目标页面target.html&lt;/a&gt;--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">th:href</span>=<span class="string">&quot;@&#123;/target&#125;&quot;</span>&gt;</span>访问目标页面target.html<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;/target&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toTarget</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="comment">//设置视图名称</span></span><br><span class="line">	<span class="keyword">return</span> <span class="string">&quot;target&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="7、总结"><a href="#7、总结" class="headerlink" title="7、总结"></a>7、总结</h2><p>浏览器发送请求，若请求地址复合前端控制器的url-pattern，该请求就会被前端控制器DispatcherServlet处理。前端控制器会读取SpringMVC的核心配置文件，通过扫描组件找到控制器，将请求地址和控制器中@RequestMapping注解的value属性进行匹配，若匹配成功，该注解所标识的控制器方法就是处理请求的方法。处理请求的方法返回一个字符串类型的视图名称，该视图名称会被视图解析器解析，加上前缀和后缀组成视图的路径，通过Thymeleaf对视图进行渲染，最终转发到视图所对应页面。</p>
 ]]></content>
+      <categories>
+        <category>SpringMVC</category>
+      </categories>
+      <tags>
+        <tag>SpringMVC</tag>
+      </tags>
   </entry>
   <entry>
     <title>SpringMVC2基础功能</title>
     <url>/2022/01/11/SpringMVC2%E5%9F%BA%E7%A1%80%E5%8A%9F%E8%83%BD/</url>
-    <content><![CDATA[<span id="more"></span>
+    <content><![CDATA[<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20220111215434.jpeg" alt="img"></p>
+<span id="more"></span>
 
-]]></content>
+<h1 id="一、-RequestMapping注解"><a href="#一、-RequestMapping注解" class="headerlink" title="一、@RequestMapping注解"></a>一、@RequestMapping注解</h1><h2 id="1、-RequestMapping注解的功能"><a href="#1、-RequestMapping注解的功能" class="headerlink" title="1、@RequestMapping注解的功能"></a>1、@RequestMapping注解的功能</h2><p>从注解的名称上我们可以看到，@RequestMapping注解的作用就是将请求和请求的控制器方法关联起来，简历映射关系。</p>
+<p>SpringMVC接收到指定的请求，就会来找到在映射关系统对应的控制器方法来处理这个请求。</p>
+<h2 id="2、-RequestMapping注解的位置"><a href="#2、-RequestMapping注解的位置" class="headerlink" title="2、@RequestMapping注解的位置"></a>2、@RequestMapping注解的位置</h2><p><font color=red><strong>@Target({ElementType.TYPE, ElementType.METHOD})说明@RequestMapping可以标识到类和方法上</strong></font></p>
+<p>@RequestMapping标识一个类：设置映射请求的请求路径的初始信息</p>
+<p>@RequestMapping标识一个方法：设置映射请求请求路径的具体信息</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">th:href</span>=<span class="string">&quot;@&#123;/tar/target&#125;&quot;</span>&gt;</span>用于测试@RequstMapping<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/tar&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RequestMappingController</span> </span>&#123;</span><br><span class="line">	<span class="meta">@RequestMapping(&quot;/target&quot;)</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">index</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">&quot;target&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3、-RequestMapping注解的value属性"><a href="#3、-RequestMapping注解的value属性" class="headerlink" title="3、@RequestMapping注解的value属性"></a>3、@RequestMapping注解的value属性</h2><p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20220112231731.png" alt="image-20220112231722614"></p>
+<p>@RequestMapping注解的value属性通过请求地址匹配请求映射。</p>
+<p>@RequestMapping注解的value属性是一个字符串类型的数组，标识该请求映射能够匹配多个请求地址所对应的请求</p>
+<p>@RequestMapping注解的value属性必须设置，至少通过请求地址匹配请求映射</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">th:href</span>=<span class="string">&quot;@&#123;/target&#125;&quot;</span>&gt;</span>用于测试@RequstMapping注解的value属性--&gt;/target<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">th:href</span>=<span class="string">&quot;@&#123;/test&#125;&quot;</span>&gt;</span>用于测试@RequstMapping注解的value属性--&gt;/test<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RequestMappingController</span> </span>&#123;</span><br><span class="line">	<span class="meta">@RequestMapping(value = &#123;&quot;/target&quot;,&quot;/test&quot;&#125;)</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">index</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">&quot;target&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4、-RequestMapping注解的method属性"><a href="#4、-RequestMapping注解的method属性" class="headerlink" title="4、@RequestMapping注解的method属性"></a>4、@RequestMapping注解的method属性</h2><p>@RequestMapping注解的method属性通过请求的请求方式（get或post）匹配请求映射。</p>
+<p>@RequestMapping注解的method属性是一个RequestMthod类型的数组，表示该请求能够匹配多种请求方式的请求</p>
+<p>若当前的请求地址满足请求映射的value属性，但是请求方式不满足method属性，则浏览器报错405：</p>
+<p>Request method’POST’ not supported</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">th:action</span>=<span class="string">&quot;@&#123;/test&#125;&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(value = &#123;&quot;/target&quot;,&quot;/test&quot;&#125;,</span></span><br><span class="line"><span class="meta">		method = &#123;RequestMethod.POST,RequestMethod.GET&#125;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">testRequestMapping</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">&quot;target&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>使用method必须要有value！！！</strong></p>
+<blockquote>
+<p>注：</p>
+<p>1、对于处理指定请求方式的控制器方法，SpringMVC中提供了@RequestMapping的派生主机</p>
+<p>处理get请求的映射–&gt;@GetMapping</p>
+<p>处理post请求的映射–&gt;@PostMapping</p>
+<p>处理put请求的映射–&gt;@PutMapping</p>
+<p>处理delete请求的映射–&gt;@DeleteMapping</p>
+<p>2、常用的请求方式有GET、POST、 PUT、 DELETE</p>
+<p>但是目前浏览器只支持GET和POST，若在form表单提交时，为method设置了其他请求方式的字符串（put或delete），则按照默认的请求方式get处理。</p>
+<p>若要发送put和delete请求，则需要通过Spring提供的过滤器HiddenHttpMethodFilter。</p>
+</blockquote>
+<h2 id="5、-RequestMapping注解的params属性（了解）"><a href="#5、-RequestMapping注解的params属性（了解）" class="headerlink" title="5、@RequestMapping注解的params属性（了解）"></a>5、@RequestMapping注解的params属性（了解）</h2><p>@RequestMapping注解的params属性通过请求的请求参数匹配请求映射</p>
+<p>@RequestMapping注解的params属性是一个字符串类型的数组，可以通过四种表达式设置请求参数和请求映射的匹配关系</p>
+<p><strong>“param”：要求请求映射所匹配的请求必须携带param请求参数</strong></p>
+<p><strong>“！param”：要求请求映射所匹配的请求必须不能携带param请求参数</strong></p>
+<p><strong>“param=value”：要求请求映射所匹配的请求必须携带param请求参数且param=value</strong></p>
+<p><strong>“param！=value”：要求请求映射所匹配的请求必须携带param请求参数且param! =value</strong></p>
+<h2 id="6、-RequestMapping注解的headers属性（了解）"><a href="#6、-RequestMapping注解的headers属性（了解）" class="headerlink" title="6、@RequestMapping注解的headers属性（了解）"></a>6、@RequestMapping注解的headers属性（了解）</h2><h2 id="7、SpringMVC支持ant风格的路径"><a href="#7、SpringMVC支持ant风格的路径" class="headerlink" title="7、SpringMVC支持ant风格的路径"></a>7、SpringMVC支持ant风格的路径</h2><h2 id="8、SpringMVC支持路径中的占位符【重点】"><a href="#8、SpringMVC支持路径中的占位符【重点】" class="headerlink" title="8、SpringMVC支持路径中的占位符【重点】"></a>8、SpringMVC支持路径中的占位符【重点】</h2><h1 id="二、SpringMVC获取请求参数"><a href="#二、SpringMVC获取请求参数" class="headerlink" title="二、SpringMVC获取请求参数"></a>二、SpringMVC获取请求参数</h1><h2 id="1、通过ServletAPI获取请求参数"><a href="#1、通过ServletAPI获取请求参数" class="headerlink" title="1、通过ServletAPI获取请求参数"></a>1、通过ServletAPI获取请求参数</h2><h2 id="2、通过控制器方法的形参获取请求参数"><a href="#2、通过控制器方法的形参获取请求参数" class="headerlink" title="2、通过控制器方法的形参获取请求参数"></a>2、通过控制器方法的形参获取请求参数</h2><h2 id="3、-RequestParam注解"><a href="#3、-RequestParam注解" class="headerlink" title="3、@RequestParam注解"></a>3、@RequestParam注解</h2><h2 id="4、-RequestHeader注解"><a href="#4、-RequestHeader注解" class="headerlink" title="4、@RequestHeader注解"></a>4、@RequestHeader注解</h2><h2 id="5、-CookieValue注解"><a href="#5、-CookieValue注解" class="headerlink" title="5、@CookieValue注解"></a>5、@CookieValue注解</h2>]]></content>
+      <categories>
+        <category>SpringMVC</category>
+      </categories>
+      <tags>
+        <tag>SpringMVC</tag>
+      </tags>
   </entry>
   <entry>
     <title>SpringMVC3RESTFul</title>
@@ -116,6 +177,23 @@
     <content><![CDATA[<span id="more"></span>
 
 ]]></content>
+  </entry>
+  <entry>
+    <title>git</title>
+    <url>/2021/12/26/git/</url>
+    <content><![CDATA[<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226175034.jpeg" alt="img"></p>
+<h1 id="Git、GitHub、Gitee、GitLab"><a href="#Git、GitHub、Gitee、GitLab" class="headerlink" title="Git、GitHub、Gitee、GitLab"></a>Git、GitHub、Gitee、GitLab</h1><span id="more"></span>
+
+<h2 id="一、Git介绍"><a href="#一、Git介绍" class="headerlink" title="一、Git介绍"></a>一、Git介绍</h2><p>分布式版本控制工具 ：Git</p>
+<p>集中式版本控制工具：SVN</p>
+<p>、IDEA中使用Git</p>
+]]></content>
+      <categories>
+        <category>GIT</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
   </entry>
   <entry>
     <title>hexo搭建博客一</title>
@@ -564,6 +642,37 @@
       </tags>
   </entry>
   <entry>
+    <title>java练习题</title>
+    <url>/2022/01/10/java%E7%BB%83%E4%B9%A0%E9%A2%98/</url>
+    <content><![CDATA[<span id="more"></span>
+
+<h1 id="数组练习题"><a href="#数组练习题" class="headerlink" title="数组练习题"></a>数组练习题</h1><p>题1</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">升景坊单间短期出租4个月，550元/月空调、卫生间、厨房齐全。</span></span><br><span class="line"><span class="comment">屋内均是IT行业人事，喜欢安静，所以要求来租者最好是同行或者刚毕业的年轻人，爱干净，安静。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span>[] arr=<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">8</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">3</span>&#125;;</span><br><span class="line">	<span class="keyword">int</span>[] index=<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">2</span>,<span class="number">0</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>&#125;;</span><br><span class="line">	String tel=<span class="string">&quot;&quot;</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;index.length;i++)&#123;</span><br><span class="line">		tel+=arr[index[i]];</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println(<span class="string">&quot;联系方式:&quot;</span>+tel);<span class="comment">//18013820100</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>题2</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">从键盘读入学生成绩，找出最高分，并输出学生成绩等级</span></span><br><span class="line"><span class="comment">1、成绩&gt;=最高分-10  等级为A</span></span><br><span class="line"><span class="comment">2、成绩&gt;=最高分-20  等级为B</span></span><br><span class="line"><span class="comment">3、成绩&gt;=最高分-30  等级为C</span></span><br><span class="line"><span class="comment">4、其余             等级为D</span></span><br><span class="line"><span class="comment">提示：先读入学生人数，根据人数创建int数组，存放学生成绩。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	Scanner scanner = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">	System.out.print(<span class="string">&quot;请输入学生总数:&quot;</span>);</span><br><span class="line">	<span class="keyword">int</span> peoples = scanner.nextInt();</span><br><span class="line">	System.out.println();</span><br><span class="line">	<span class="keyword">int</span>[] stu = <span class="keyword">new</span> <span class="keyword">int</span>[peoples];</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; stu.length; i++) &#123;</span><br><span class="line">		stu[i] = ((<span class="keyword">int</span>)( Math.random() * <span class="number">100</span>)) + <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> max=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; stu.length; i++) &#123;</span><br><span class="line">		<span class="keyword">if</span> (max&lt;stu[i])&#123;</span><br><span class="line">			max=stu[i];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println(<span class="string">&quot;最大值为:&quot;</span>+max);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; stu.length; i++) &#123;</span><br><span class="line">		<span class="keyword">if</span> (stu[i]&gt;=max-<span class="number">10</span>) &#123;</span><br><span class="line">			System.out.println(<span class="string">&quot;学生stu&quot;</span>+i+<span class="string">&quot;成绩为：&quot;</span>+stu[i]+<span class="string">&quot;等级为:A&quot;</span>);</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (stu[i]&gt;=max-<span class="number">20</span> &amp;&amp; stu[i]&lt;=max-<span class="number">10</span>) &#123;</span><br><span class="line">			System.out.println(<span class="string">&quot;学生stu&quot;</span>+i+<span class="string">&quot;成绩为：&quot;</span>+stu[i]+<span class="string">&quot;等级为:B&quot;</span>);</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (stu[i]&gt;=max-<span class="number">30</span> &amp;&amp; stu[i]&lt;=max-<span class="number">20</span> )&#123;</span><br><span class="line">			System.out.println(<span class="string">&quot;学生stu&quot;</span>+i+<span class="string">&quot;成绩为：&quot;</span>+stu[i]+<span class="string">&quot;等级为:C&quot;</span>);</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			System.out.println(<span class="string">&quot;学生stu&quot;</span>+i+<span class="string">&quot;成绩为：&quot;</span>+stu[i]+<span class="string">&quot;等级为:D&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>题3</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span>、写出以为数组初始化的两种方式</span><br><span class="line"><span class="number">2</span>、写出二维数组初始化的两种方式</span><br><span class="line"><span class="number">3</span>、如何遍历如下的二维数组：<span class="keyword">int</span>[] arr=<span class="keyword">new</span> <span class="keyword">int</span>[][]&#123;&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;,&#123;<span class="number">4</span>,<span class="number">5</span>&#125;,&#123;<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>&#125;&#125;;</span><br><span class="line"><span class="number">4</span>、不同类型的一维数组元素的默认初始化值各是多少</span><br><span class="line"><span class="number">5</span>、一维数组的内存解析</span><br><span class="line">    String[] strs=<span class="keyword">new</span> String[<span class="number">5</span>];</span><br><span class="line">	strs[<span class="number">2</span>]=<span class="string">&quot;TOM&quot;</span>;</span><br><span class="line">	strs=<span class="keyword">new</span> String[<span class="number">3</span>];</span><br></pre></td></tr></table></figure>
+
+<p>题4</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20220110225436.png" alt="image-20220110225436503"></p>
+<p>题5</p>
+<p>​    <img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20220110225509.png"></p>
+<p>题6</p>
+<p>​    <img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20220110225545.png" alt="image-20220110225545278"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20220110225617.png" alt="image-20220110225617133"></p>
+<h1 id="数组中涉及的常见算法练习题"><a href="#数组中涉及的常见算法练习题" class="headerlink" title="数组中涉及的常见算法练习题"></a>数组中涉及的常见算法练习题</h1>]]></content>
+  </entry>
+  <entry>
+    <title>日志实现JUL</title>
+    <url>/2022/01/09/%E6%97%A5%E5%BF%97%E5%AE%9E%E7%8E%B0JUL/</url>
+    <content><![CDATA[<span id="more"></span>
+
+<p>[toc]</p>
+]]></content>
+  </entry>
+  <entry>
     <title>数组</title>
     <url>/2022/01/07/%E6%95%B0%E7%BB%84/</url>
     <content><![CDATA[<span id="more"></span>
@@ -640,14 +749,6 @@
       <tags>
         <tag>javase</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>日志实现JUL</title>
-    <url>/2022/01/09/%E6%97%A5%E5%BF%97%E5%AE%9E%E7%8E%B0JUL/</url>
-    <content><![CDATA[<span id="more"></span>
-
-<p>[toc]</p>
-]]></content>
   </entry>
   <entry>
     <title>日志实现Log4j</title>
@@ -730,45 +831,5 @@
 
 <p>[toc]</p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>java练习题</title>
-    <url>/2022/01/10/java%E7%BB%83%E4%B9%A0%E9%A2%98/</url>
-    <content><![CDATA[<span id="more"></span>
-
-<h1 id="数组练习题"><a href="#数组练习题" class="headerlink" title="数组练习题"></a>数组练习题</h1><p>题1</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">升景坊单间短期出租4个月，550元/月空调、卫生间、厨房齐全。</span></span><br><span class="line"><span class="comment">屋内均是IT行业人事，喜欢安静，所以要求来租者最好是同行或者刚毕业的年轻人，爱干净，安静。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span>[] arr=<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">8</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">3</span>&#125;;</span><br><span class="line">	<span class="keyword">int</span>[] index=<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">2</span>,<span class="number">0</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>&#125;;</span><br><span class="line">	String tel=<span class="string">&quot;&quot;</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;index.length;i++)&#123;</span><br><span class="line">		tel+=arr[index[i]];</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println(<span class="string">&quot;联系方式:&quot;</span>+tel);<span class="comment">//18013820100</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>题2</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">从键盘读入学生成绩，找出最高分，并输出学生成绩等级</span></span><br><span class="line"><span class="comment">1、成绩&gt;=最高分-10  等级为A</span></span><br><span class="line"><span class="comment">2、成绩&gt;=最高分-20  等级为B</span></span><br><span class="line"><span class="comment">3、成绩&gt;=最高分-30  等级为C</span></span><br><span class="line"><span class="comment">4、其余             等级为D</span></span><br><span class="line"><span class="comment">提示：先读入学生人数，根据人数创建int数组，存放学生成绩。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	Scanner scanner = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">	System.out.print(<span class="string">&quot;请输入学生总数:&quot;</span>);</span><br><span class="line">	<span class="keyword">int</span> peoples = scanner.nextInt();</span><br><span class="line">	System.out.println();</span><br><span class="line">	<span class="keyword">int</span>[] stu = <span class="keyword">new</span> <span class="keyword">int</span>[peoples];</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; stu.length; i++) &#123;</span><br><span class="line">		stu[i] = ((<span class="keyword">int</span>)( Math.random() * <span class="number">100</span>)) + <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> max=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; stu.length; i++) &#123;</span><br><span class="line">		<span class="keyword">if</span> (max&lt;stu[i])&#123;</span><br><span class="line">			max=stu[i];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println(<span class="string">&quot;最大值为:&quot;</span>+max);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; stu.length; i++) &#123;</span><br><span class="line">		<span class="keyword">if</span> (stu[i]&gt;=max-<span class="number">10</span>) &#123;</span><br><span class="line">			System.out.println(<span class="string">&quot;学生stu&quot;</span>+i+<span class="string">&quot;成绩为：&quot;</span>+stu[i]+<span class="string">&quot;等级为:A&quot;</span>);</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (stu[i]&gt;=max-<span class="number">20</span> &amp;&amp; stu[i]&lt;=max-<span class="number">10</span>) &#123;</span><br><span class="line">			System.out.println(<span class="string">&quot;学生stu&quot;</span>+i+<span class="string">&quot;成绩为：&quot;</span>+stu[i]+<span class="string">&quot;等级为:B&quot;</span>);</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (stu[i]&gt;=max-<span class="number">30</span> &amp;&amp; stu[i]&lt;=max-<span class="number">20</span> )&#123;</span><br><span class="line">			System.out.println(<span class="string">&quot;学生stu&quot;</span>+i+<span class="string">&quot;成绩为：&quot;</span>+stu[i]+<span class="string">&quot;等级为:C&quot;</span>);</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			System.out.println(<span class="string">&quot;学生stu&quot;</span>+i+<span class="string">&quot;成绩为：&quot;</span>+stu[i]+<span class="string">&quot;等级为:D&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>题3</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span>、写出以为数组初始化的两种方式</span><br><span class="line"><span class="number">2</span>、写出二维数组初始化的两种方式</span><br><span class="line"><span class="number">3</span>、如何遍历如下的二维数组：<span class="keyword">int</span>[] arr=<span class="keyword">new</span> <span class="keyword">int</span>[][]&#123;&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;,&#123;<span class="number">4</span>,<span class="number">5</span>&#125;,&#123;<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>&#125;&#125;;</span><br><span class="line"><span class="number">4</span>、不同类型的一维数组元素的默认初始化值各是多少</span><br><span class="line"><span class="number">5</span>、一维数组的内存解析</span><br><span class="line">    String[] strs=<span class="keyword">new</span> String[<span class="number">5</span>];</span><br><span class="line">	strs[<span class="number">2</span>]=<span class="string">&quot;TOM&quot;</span>;</span><br><span class="line">	strs=<span class="keyword">new</span> String[<span class="number">3</span>];</span><br></pre></td></tr></table></figure>
-
-<p>题4</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20220110225436.png" alt="image-20220110225436503"></p>
-<p>题5</p>
-<p>​    <img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20220110225509.png"></p>
-<p>题6</p>
-<p>​    <img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20220110225545.png" alt="image-20220110225545278"></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20220110225617.png" alt="image-20220110225617133"></p>
-<h1 id="数组中涉及的常见算法练习题"><a href="#数组中涉及的常见算法练习题" class="headerlink" title="数组中涉及的常见算法练习题"></a>数组中涉及的常见算法练习题</h1>]]></content>
-  </entry>
-  <entry>
-    <title>git</title>
-    <url>/2021/12/26/git/</url>
-    <content><![CDATA[<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226175034.jpeg" alt="img"></p>
-<h1 id="Git、GitHub、Gitee、GitLab"><a href="#Git、GitHub、Gitee、GitLab" class="headerlink" title="Git、GitHub、Gitee、GitLab"></a>Git、GitHub、Gitee、GitLab</h1><span id="more"></span>
-
-<h2 id="一、Git介绍"><a href="#一、Git介绍" class="headerlink" title="一、Git介绍"></a>一、Git介绍</h2><p>分布式版本控制工具 ：Git</p>
-<p>集中式版本控制工具：SVN</p>
-<p>、IDEA中使用Git</p>
-]]></content>
-      <categories>
-        <category>GIT</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
   </entry>
 </search>

@@ -32,9 +32,9 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20220112000315.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20220111234123.png">
 <meta property="article:published_time" content="2022-01-11T13:48:37.000Z">
-<meta property="article:modified_time" content="2022-01-11T17:12:24.312Z">
+<meta property="article:modified_time" content="2022-01-12T13:43:46.438Z">
 <meta property="article:author" content="云飞">
-<meta property="article:tag" content="Java  目标  坚持">
+<meta property="article:tag" content="SpringMVC">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20220111215434.jpeg">
 
@@ -231,8 +231,17 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-01-12 01:12:24" itemprop="dateModified" datetime="2022-01-12T01:12:24+08:00">2022-01-12</time>
+                <time title="修改时间：2022-01-12 21:43:46" itemprop="dateModified" datetime="2022-01-12T21:43:46+08:00">2022-01-12</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/SpringMVC/" itemprop="url" rel="index"><span itemprop="name">SpringMVC</span></a>
+                </span>
+            </span>
 
           
             <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
@@ -261,14 +270,14 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>5.9k</span>
+              <span>7.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="fa fa-clock-o"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
+              <span>6 分钟</span>
             </span>
 
         </div>
@@ -315,6 +324,8 @@
 <h2 id="2、创建maven工程"><a href="#2、创建maven工程" class="headerlink" title="2、创建maven工程"></a>2、创建maven工程</h2><p><strong>第一步：添加web模块</strong></p>
 <p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20220111234123.png" alt="image-20220111234123345"></p>
 <p><strong>第二步：打包方式war</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">packaging</span>&gt;</span>war<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p><strong>第三步：引入依赖</strong></p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--SpringMVC--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-webmvc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.3.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--日志--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>ch.qos.logback<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>logback-classic<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--ServletAPI--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>javax.servlet-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.1.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--Spring5和Thymeleaf整合包--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.thymeleaf<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>thymeleaf-spring5<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0.12.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
@@ -347,8 +358,11 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//@RequestMapping注解：处理请求和控制器方法之间的映射关系</span></span><br><span class="line"><span class="comment">//@RequestMapping注解的value属性可以通过请求地址匹配请求，/表示的当前工程的上下文路径</span></span><br><span class="line"><span class="comment">//localhost:8080/SpringMVC/</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">index</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="comment">//设置视图名称</span></span><br><span class="line">	<span class="keyword">return</span> <span class="string">&quot;index&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><strong>b&gt;通过超链接跳转到指定页面</strong><br>        在主页index.html中设置超链接</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span> <span class="attr">xmlns:th</span>=<span class="string">&quot;http://www.thymeleaf.org&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>首页<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>hello,欢迎codefishyyf学习SpringMVC<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--路径分为绝对路径和相对路径：</span></span><br><span class="line"><span class="comment">    以/开头的路径为绝对路径，绝对路径分为浏览器解析的和服务器解析的</span></span><br><span class="line"><span class="comment">    超链接中的绝对路径就是由浏览器解析的，这个时候/表示：localhost:8080</span></span><br><span class="line"><span class="comment">    所以需要加上上下文路径。/SpringMVC_demo1。由于tomcat中的上下文路径是可以修改的，</span></span><br><span class="line"><span class="comment">    所以使用thymeleaf语法中的来动态获取上下文路径。</span></span><br><span class="line"><span class="comment">    &lt;a th:href=&quot;@&#123;/target&#125;&quot;&gt;访问目标页面target.html&lt;/a&gt;</span></span><br><span class="line"><span class="comment">    这样thymeleaf就会自动给我们加上上下文路径。</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--&lt;a href=&quot;/SpringMVC_demo1/target&quot;&gt;访问目标页面target.html&lt;/a&gt;--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">th:href</span>=<span class="string">&quot;@&#123;/target&#125;&quot;</span>&gt;</span>访问目标页面target.html<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(&quot;/target&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toTarget</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="comment">//设置视图名称</span></span><br><span class="line">	<span class="keyword">return</span> <span class="string">&quot;target&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="7、总结"><a href="#7、总结" class="headerlink" title="7、总结"></a>7、总结</h2><p>浏览器发送请求，若请求地址复合前端控制器的url-pattern，该请求就会被前端控制器DispatcherServlet处理。前端控制器会读取SpringMVC的核心配置文件，通过扫描组件找到控制器，将请求地址和控制器中@RequestMapping注解的value属性进行匹配，若匹配成功，该注解所标识的控制器方法就是处理请求的方法。处理请求的方法返回一个字符串类型的视图名称，该视图名称会被视图解析器解析，加上前缀和后缀组成视图的路径，通过Thymeleaf对视图进行渲染，最终转发到视图所对应页面。</p>
 
     </div>
 
@@ -397,6 +411,10 @@
 
 
       <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/SpringMVC/" rel="tag"><i class="fa fa-tag"></i> SpringMVC</a>
+          </div>
 
         
 
@@ -470,7 +488,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81SpringMVC%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">一、SpringMVC简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AFMVC"><span class="nav-number">1.1.</span> <span class="nav-text">1、什么是MVC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AFSpringMVC"><span class="nav-number">1.2.</span> <span class="nav-text">2、什么是SpringMVC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81SpringMVC%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-number">1.3.</span> <span class="nav-text">3、SpringMVC的特点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81HelloWorld"><span class="nav-number">2.</span> <span class="nav-text">二、HelloWorld</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="nav-number">2.1.</span> <span class="nav-text">1、开发环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E5%88%9B%E5%BB%BAmaven%E5%B7%A5%E7%A8%8B"><span class="nav-number">2.2.</span> <span class="nav-text">2、创建maven工程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81%E9%85%8D%E7%BD%AEweb-xml%E6%96%87%E4%BB%B6"><span class="nav-number">2.3.</span> <span class="nav-text">3、配置web.xml文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%E3%80%81%E5%88%9B%E5%BB%BA%E8%AF%B7%E6%B1%82%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="nav-number">2.4.</span> <span class="nav-text">4、创建请求控制器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5%E3%80%81%E5%88%9B%E5%BB%BASpringMVC%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">2.5.</span> <span class="nav-text">5、创建SpringMVC的配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6%E3%80%81%E6%B5%8B%E8%AF%95HelloWorld"><span class="nav-number">2.6.</span> <span class="nav-text">6、测试HelloWorld</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81SpringMVC%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">一、SpringMVC简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AFMVC"><span class="nav-number">1.1.</span> <span class="nav-text">1、什么是MVC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AFSpringMVC"><span class="nav-number">1.2.</span> <span class="nav-text">2、什么是SpringMVC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81SpringMVC%E7%9A%84%E7%89%B9%E7%82%B9"><span class="nav-number">1.3.</span> <span class="nav-text">3、SpringMVC的特点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81HelloWorld"><span class="nav-number">2.</span> <span class="nav-text">二、HelloWorld</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="nav-number">2.1.</span> <span class="nav-text">1、开发环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E5%88%9B%E5%BB%BAmaven%E5%B7%A5%E7%A8%8B"><span class="nav-number">2.2.</span> <span class="nav-text">2、创建maven工程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81%E9%85%8D%E7%BD%AEweb-xml%E6%96%87%E4%BB%B6"><span class="nav-number">2.3.</span> <span class="nav-text">3、配置web.xml文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%E3%80%81%E5%88%9B%E5%BB%BA%E8%AF%B7%E6%B1%82%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="nav-number">2.4.</span> <span class="nav-text">4、创建请求控制器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5%E3%80%81%E5%88%9B%E5%BB%BASpringMVC%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">2.5.</span> <span class="nav-text">5、创建SpringMVC的配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6%E3%80%81%E6%B5%8B%E8%AF%95HelloWorld"><span class="nav-number">2.6.</span> <span class="nav-text">6、测试HelloWorld</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7%E3%80%81%E6%80%BB%E7%BB%93"><span class="nav-number">2.7.</span> <span class="nav-text">7、总结</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -493,13 +511,13 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -521,7 +539,7 @@
         <h3 class="widget-title">Tag Cloud</h3>
         <div id="myCanvasContainer" class="widget tagcloud">
             <canvas width="250" height="250" id="resCanvas" style="width=100%">
-                <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javase/" rel="tag">javase</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" rel="tag">搭建博客</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6/" rel="tag">日志框架</a><span class="tag-list-count">1</span></li></ul>
+                <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringMVC/" rel="tag">SpringMVC</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javase/" rel="tag">javase</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" rel="tag">搭建博客</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6/" rel="tag">日志框架</a><span class="tag-list-count">1</span></li></ul>
             </canvas>
         </div>
       </div>
@@ -553,13 +571,13 @@
       <i class="fa fa-area-chart"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">30k</span>
+    <span title="站点总字数">34k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">27 分钟</span>
+    <span title="站点阅读时长">31 分钟</span>
 </div>
 
         
