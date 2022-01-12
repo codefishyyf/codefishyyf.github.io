@@ -9,21 +9,113 @@
 ]]></content>
   </entry>
   <entry>
-    <title>git</title>
-    <url>/2021/12/26/git/</url>
-    <content><![CDATA[<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226175034.jpeg" alt="img"></p>
-<h1 id="Git、GitHub、Gitee、GitLab"><a href="#Git、GitHub、Gitee、GitLab" class="headerlink" title="Git、GitHub、Gitee、GitLab"></a>Git、GitHub、Gitee、GitLab</h1><span id="more"></span>
+    <title>SpringMVC1简介</title>
+    <url>/2022/01/11/SpringMVC1%E7%AE%80%E4%BB%8B/</url>
+    <content><![CDATA[<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20220111215434.jpeg" alt="img"></p>
+<span id="more"></span>
 
-<h2 id="一、Git介绍"><a href="#一、Git介绍" class="headerlink" title="一、Git介绍"></a>一、Git介绍</h2><p>分布式版本控制工具 ：Git</p>
-<p>集中式版本控制工具：SVN</p>
-<p>、IDEA中使用Git</p>
+
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20220112000315.png" alt="image-20220111215256881"></p>
+<h1 id="一、SpringMVC简介"><a href="#一、SpringMVC简介" class="headerlink" title="一、SpringMVC简介"></a>一、SpringMVC简介</h1><h2 id="1、什么是MVC"><a href="#1、什么是MVC" class="headerlink" title="1、什么是MVC"></a>1、什么是MVC</h2><p>MVC是一种软件架构的思想，将软件按照模型、视图、控制器来划分</p>
+<p>M：Model，模型层，指工程中的JavaBean，作用是处理数据。</p>
+<p>javaBean分为两类：</p>
+<ul>
+<li>一类称为实体类Bean：专门存储业务数据的，如Student，User等。</li>
+<li>一类称为专业处理Bean：指Service或Dao对象，专门用于处理业务逻辑和数据访问。</li>
+</ul>
+<p>V：View，视图层，指工程中的html或jsp等页面，作用是与用户进行交互，展示数据</p>
+<p>C：Controller，控制层，指工程中的servlet，作用是接受请求和相应浏览器</p>
+<p>MVC的工作流程：</p>
+<p>用户通过视图层发送请求到服务器，在服务器中请求被Controller接收，Controller调用相应Model层处理请求，处理完毕</p>
+<h2 id="2、什么是SpringMVC"><a href="#2、什么是SpringMVC" class="headerlink" title="2、什么是SpringMVC"></a>2、什么是SpringMVC</h2><p>SpringMVC是Spring的一个后续产品，是Spring的一个子项目。</p>
+<p>SpringMVC是Spring为表述层开发提供的一整套完备的解决方案。在表示层框架经历Strust,WebWork、Strust2等诸多产品的历代更迭之后，目前业界普遍选择了SpringMVC作为JavaEE项目表述层开发的首选方案。</p>
+<p>注：三层架构分为：表述层、业务逻辑层、数据访问层。表述层表示前台页面和后台servlet。</p>
+<h2 id="3、SpringMVC的特点"><a href="#3、SpringMVC的特点" class="headerlink" title="3、SpringMVC的特点"></a>3、SpringMVC的特点</h2><ul>
+<li>Spring家族原生产品，与IOC容器等基础设施无缝对接</li>
+<li>基于原生的Servlet，通过了功能强大的前端控制器DispatcherServlet,对请求和相应进行统一处理</li>
+<li>表述层各细分领域需要解决全方位覆盖，提供全面解决方案</li>
+<li>代码清晰简介，大幅度提升开发效率</li>
+<li>内部组件化程度高，可插拨式组件即插即用，想要什么功能配置相应组件即可</li>
+<li>性能显著，尤其适合现代大型、超大型互联网项目要求</li>
+</ul>
+<h1 id="二、HelloWorld"><a href="#二、HelloWorld" class="headerlink" title="二、HelloWorld"></a>二、HelloWorld</h1><h2 id="1、开发环境"><a href="#1、开发环境" class="headerlink" title="1、开发环境"></a>1、开发环境</h2><p>IDE：idea2020.1.3</p>
+<p>构建工具：maven3.6.1</p>
+<p>服务器：Tomcat8.5.57</p>
+<p>Spring版本：5.3.1</p>
+<h2 id="2、创建maven工程"><a href="#2、创建maven工程" class="headerlink" title="2、创建maven工程"></a>2、创建maven工程</h2><p><strong>第一步：添加web模块</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20220111234123.png" alt="image-20220111234123345"></p>
+<p><strong>第二步：打包方式war</strong></p>
+<p><strong>第三步：引入依赖</strong></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--SpringMVC--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-webmvc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.3.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--日志--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>ch.qos.logback<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>logback-classic<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--ServletAPI--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.servlet<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>javax.servlet-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.1.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>provided<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--Spring5和Thymeleaf整合包--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.thymeleaf<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>thymeleaf-spring5<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0.12.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3、配置web-xml文件"><a href="#3、配置web-xml文件" class="headerlink" title="3、配置web.xml文件"></a>3、配置web.xml文件</h2><p>注册SpringMVC的前端控制器DispatcherServlet</p>
+<p><strong>第一步：默认配置方式</strong></p>
+<p>在此配置作用下SpringMVC的配置文件默认位于WEB-INFO下，默认名称为<servlet-name>-servlet.xml,例如，以下配置所对应SpringMVC的配置文件位于WEB-INFO下，文件名为springMVC-servlet.xml。</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--默认配置方式--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>SpringMVC<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>SpringMVC<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">    设置SpringMVC的核心控制器所能处理的请求的请求路径</span></span><br><span class="line"><span class="comment">    这个&quot;/&quot;所匹配的请求可以使login或.html或.js或.css方式的请求路径</span></span><br><span class="line"><span class="comment">    但是&quot;/&quot;不能匹配.jsp请求路径的请求，因为.jsp本身就是一个servlet。</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>第二步：扩展配置方式【生产环境中推荐使用】</strong></p>
+<p>可通过init-param标签设置SpringMVC配置文件的位置和名称，通过load-on-startup标签设置SpringMVC前端控制器DispatcherServlet的初始化时间</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"> <span class="comment">&lt;!--扩展配置方式【工作用使用这一种】--&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>SpringMVC<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">     <span class="comment">&lt;!--通过下面的init-param初始化标签配置SpringMVC配置文件的位置和名称--&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">         <span class="comment">&lt;!--contextConfigLocation为固定值,表示上下文配置路径--&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">         <span class="comment">&lt;!--使用classpath:表示从类路径查找配置文件，例如maven工程中的src/main/resources</span></span><br><span class="line"><span class="comment">	这里的SpringMVC.xml需要在resources文件夹下创建一个SpringMVC.xml的配置文件	</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:SpringMVC.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">     <span class="comment">&lt;!--将前端控制器dispatcherServlet的初始化时间提前到服务器启动时--&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">load-on-startup</span>&gt;</span>1<span class="tag">&lt;/<span class="name">load-on-startup</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>SpringMVC<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>注：</p>
+<p><url-pattern>标签中使用/和/*的区别：</p>
+<p>/所匹配的请求可以是/login或.html或.js方式的请求路径，但是/不能匹配.jsp请求路径的请求。</p>
+<p>因此就可以避免在访问jsp页面时，该请求被DispatcherServlet处理，从而找不到响应的页面。</p>
+<p>**/*<strong>则能够匹配所有请求，例如在使用过滤器时，若需要对所有请求进行过滤，就需要使用</strong>/***的写法。</p>
+<h2 id="4、创建请求控制器"><a href="#4、创建请求控制器" class="headerlink" title="4、创建请求控制器"></a>4、创建请求控制器</h2><p>由于前端控制器对浏览器发送的请求进行了统一的处理，但是具体的请求有不同的处理过程，因此需要创建处理具体请求的类，即请求控制器。</p>
+<p>请求控制器中每一个处理请求的方法成为控制器方法。</p>
+<p>因为SpringMVC的控制器由一个POJO（普通的java类）担任，因此需要通过@Controller注解将其标识为一个控制层组件，交给Spring的IOC容器管理，此时SpringMVC才能够识别控制器的存在。</p>
+<p>下面方式通过注解+扫描的方式【不推荐使用bean的方式】</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloController</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--在SpringMVC.xml配置文件 中开启组件扫描--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">&quot;com.codefish&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">context:component-scan</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="5、创建SpringMVC的配置文件"><a href="#5、创建SpringMVC的配置文件" class="headerlink" title="5、创建SpringMVC的配置文件"></a>5、创建SpringMVC的配置文件</h2><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">1、配置Thymeleaf视图解析器</span><br><span class="line">    <span class="comment">&lt;!--配置Thymeleaf视图解析器--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;viewResolver&quot;</span> <span class="attr">class</span>=<span class="string">&quot;org.thymeleaf.spring5.view.ThymeleafViewResolver&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;order&quot;</span> <span class="attr">value</span>=<span class="string">&quot;1&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;characterEncoding&quot;</span> <span class="attr">value</span>=<span class="string">&quot;UTF-8&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;templateEngine&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">&quot;org.thymeleaf.spring5.SpringTemplateEngine&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;templateResolver&quot;</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">&quot;org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver&quot;</span>&gt;</span></span><br><span class="line">                        <span class="comment">&lt;!--视图前缀--&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;prefix&quot;</span> <span class="attr">value</span>=<span class="string">&quot;/WEB-INF/templates/&quot;</span>/&gt;</span></span><br><span class="line">                        <span class="comment">&lt;!--视图后缀--&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;suffix&quot;</span> <span class="attr">value</span>=<span class="string">&quot;.html&quot;</span>/&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;templateMode&quot;</span> <span class="attr">value</span>=<span class="string">&quot;HTML5&quot;</span>/&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;characterEncoding&quot;</span> <span class="attr">value</span>=<span class="string">&quot;UTF-8&quot;</span>/&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">        处理静态资源，例如html、js、css、jpg,若只设置该标签，则只能访问静态资源，其他请求则无法访问</span></span><br><span class="line"><span class="comment">        此时必须设置&lt;mvc:annotation-driven/&gt;解决问题</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mvc:annotation-driven</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">mvc:annotation-driven</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mvc:message-converters</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--处理响应中文内容乱码--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">&quot;org.springframework.http.converter.StringHttpMessageConverter&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;defaultCharset&quot;</span> <span class="attr">value</span>=<span class="string">&quot;UTF-8&quot;</span>/&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;supportedMediaTypes&quot;</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">list</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">value</span>&gt;</span>text/html<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">value</span>&gt;</span>application/json<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">list</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">mvc:message-converters</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mvc:annotation-driven</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="6、测试HelloWorld"><a href="#6、测试HelloWorld" class="headerlink" title="6、测试HelloWorld"></a>6、测试HelloWorld</h2><p><strong>a&gt;实现对首页的访问</strong></p>
+<p>在请求控制器中创建处理请求的方法</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//@RequestMapping注解：处理请求和控制器方法之间的映射关系</span></span><br><span class="line"><span class="comment">//@RequestMapping注解的value属性可以通过请求地址匹配请求，/表示的当前工程的上下文路径</span></span><br><span class="line"><span class="comment">//localhost:8080/SpringMVC/</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/&quot;)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">index</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="comment">//设置视图名称</span></span><br><span class="line">	<span class="keyword">return</span> <span class="string">&quot;index&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>b&gt;通过超链接跳转到指定页面</strong><br>        在主页index.html中设置超链接</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
 ]]></content>
-      <categories>
-        <category>GIT</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
+  </entry>
+  <entry>
+    <title>SpringMVC2基础功能</title>
+    <url>/2022/01/11/SpringMVC2%E5%9F%BA%E7%A1%80%E5%8A%9F%E8%83%BD/</url>
+    <content><![CDATA[<span id="more"></span>
+
+]]></content>
+  </entry>
+  <entry>
+    <title>SpringMVC3RESTFul</title>
+    <url>/2022/01/11/SpringMVC3RESTFul/</url>
+    <content><![CDATA[<span id="more"></span>
+
+]]></content>
+  </entry>
+  <entry>
+    <title>SpringMVC4执行流程</title>
+    <url>/2022/01/11/SpringMVC4%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B/</url>
+    <content><![CDATA[<span id="more"></span>
+
+]]></content>
+  </entry>
+  <entry>
+    <title>SpringMVC5注解配置</title>
+    <url>/2022/01/11/SpringMVC5%E6%B3%A8%E8%A7%A3%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<span id="more"></span>
+
+]]></content>
+  </entry>
+  <entry>
+    <title>SpringMVC6扩展功能</title>
+    <url>/2022/01/11/SpringMVC6%E6%89%A9%E5%B1%95%E5%8A%9F%E8%83%BD/</url>
+    <content><![CDATA[<span id="more"></span>
+
+]]></content>
   </entry>
   <entry>
     <title>hexo搭建博客一</title>
@@ -103,229 +195,6 @@
 <p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226191912.png" alt="Image"></p>
 <p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226191919.png" alt="Image"></p>
 <p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226191927.png" alt="Image"></p>
-]]></content>
-      <categories>
-        <category>搭建博客</category>
-      </categories>
-      <tags>
-        <tag>搭建博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo搭建博客五</title>
-    <url>/2021/12/26/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E4%BA%94/</url>
-    <content><![CDATA[<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226184204.jpeg" alt="img"></p>
-<h1 id="Typora使用"><a href="#Typora使用" class="headerlink" title="Typora使用"></a>Typora使用</h1><span id="more"></span>
-
-<p>[toc]</p>
-<h1 id="一、对文字的特殊标注"><a href="#一、对文字的特殊标注" class="headerlink" title="一、对文字的特殊标注"></a>一、对文字的特殊标注</h1><h2 id="1-标题"><a href="#1-标题" class="headerlink" title="1.标题"></a>1.标题</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># 一阶标题  或者快捷键Ctrl+1</span></span><br><span class="line"><span class="section">## 二阶标题 或者快捷键Ctrl+2</span></span><br><span class="line"><span class="section">### 三阶标题    或者快捷键Ctrl+3</span></span><br><span class="line"><span class="section">#### 四阶标题   或者快捷键Ctrl+4</span></span><br><span class="line"><span class="section">##### 五阶标题  或者快捷键Ctrl+5</span></span><br><span class="line"><span class="section">###### 六阶标题 或者快捷键Ctrl+6</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="2-下划线"><a href="#2-下划线" class="headerlink" title="2.下划线"></a>2.下划线</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">u</span>&gt;</span></span>下划线的内容<span class="xml"><span class="tag">&lt;/<span class="name">u</span>&gt;</span></span> 或按快捷键Ctrl+U</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-字体加粗"><a href="#3-字体加粗" class="headerlink" title="3.字体加粗"></a>3.字体加粗</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="strong">**加粗内容**</span>    或按快捷键Ctrl+B</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-斜体"><a href="#4-斜体" class="headerlink" title="4.斜体"></a>4.斜体</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="emphasis">*倾斜内容*</span>  或按快捷键Ctrl+I</span><br></pre></td></tr></table></figure>
-
-<h2 id="5-删除线"><a href="#5-删除线" class="headerlink" title="5.删除线"></a>5.删除线</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">~~删除线的内容~~  或按快捷键Alt+Shift+5</span><br></pre></td></tr></table></figure>
-
-<h2 id="6-文字高亮"><a href="#6-文字高亮" class="headerlink" title="6.文字高亮"></a>6.文字高亮</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">==我是最重要的==</span><br></pre></td></tr></table></figure>
-
-<h2 id="7-角标"><a href="#7-角标" class="headerlink" title="7.角标"></a>7.角标</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">x^2^    H~2~O</span><br></pre></td></tr></table></figure>
-
-<h2 id="8-文本居中"><a href="#8-文本居中" class="headerlink" title="8.文本居中"></a>8.文本居中</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">center</span>&gt;</span></span>这是要居中的文本内容<span class="xml"><span class="tag">&lt;/<span class="name">center</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-<h2 id="9-list"><a href="#9-list" class="headerlink" title="9.list"></a>9.list</h2><h3 id="1-有序"><a href="#1-有序" class="headerlink" title="1.有序"></a>1.有序</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">数字+英文小数点(.)+空格</span><br></pre></td></tr></table></figure>
-
-<p>1.策划目标<br>2.战前准备<br>3.开始行动</p>
-<h3 id="2-无序"><a href="#2-无序" class="headerlink" title="2.无序"></a>2.无序</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">+</span> 、- 、<span class="emphasis">* 创建无序列，任意数字开始+空格创建有序列表</span></span><br></pre></td></tr></table></figure>
-
-<p>猪<br>兔<br>马</p>
-<h2 id="10-Todolist"><a href="#10-Todolist" class="headerlink" title="10.Todolist"></a>10.Todolist</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> [ ] 参加会议</span><br><span class="line"><span class="bullet">-</span> [x] 中超足球赛</span><br></pre></td></tr></table></figure>
-
-<p>[ ] 参加会议<br>[x] 中超足球赛</p>
-<h2 id="11-Table"><a href="#11-Table" class="headerlink" title="11.Table"></a>11.Table</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">快捷键Ctrl+T弹出对话框</span><br></pre></td></tr></table></figure>
-
-<h2 id="12-分割线"><a href="#12-分割线" class="headerlink" title="12.分割线"></a>12.分割线</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="strong">**<span class="emphasis">*+回车  </span></span></span><br><span class="line"><span class="emphasis"><span class="strong">---+回车  </span></span></span><br></pre></td></tr></table></figure>
-
-<h1 id="二、插入"><a href="#二、插入" class="headerlink" title="二、插入"></a>二、插入</h1><h2 id="1-图片"><a href="#1-图片" class="headerlink" title="1.图片"></a>1.图片</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">图片内容</span>](<span class="link">http://t10.baidu.com/it/u=1069603383,3074552113&amp;fm=170&amp;s=771B15C75C12D8D61C3C69FB0300501F&amp;w=640&amp;h=426&amp;img.JPEG</span>)</span><br><span class="line"> 也可使用快捷键Ctrl+K</span><br><span class="line">PS：也可将图片直接拖拽进来，自动生成链接</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-链接"><a href="#2-链接" class="headerlink" title="2.链接"></a>2.链接</h2><p><em>(PS：按住Ctrl点击链接可直接打开。)</em></p>
-<h3 id="1-内行式"><a href="#1-内行式" class="headerlink" title="1.内行式"></a>1.内行式</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">百度一下，你就知道</span>](<span class="link">https://www.baidu.com/</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-参考式"><a href="#2-参考式" class="headerlink" title="2.参考式"></a>2.参考式</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">百度一下，你就知道</span>][<span class="symbol"></span>]https://www.baidu.com/          # 第二个括号内可任意填写(不显)</span><br><span class="line"></span><br><span class="line">[<span class="string">百度一下，你就知道</span>][<span class="symbol"></span>]https://www.baidu.com/</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-快速链接"><a href="#3-快速链接" class="headerlink" title="3.快速链接"></a>3.快速链接</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="xml">&lt;http://www.baidu.com&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="3-数学公式（简）"><a href="#3-数学公式（简）" class="headerlink" title="3.数学公式（简）"></a>3.数学公式（简）</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">Typora支持加入用LaTeX写成的数学公式，并且在软件界面下用MathJax直接渲染。</span><br><span class="line"><span class="emphasis">*1.行内公式(inline math)，可以在偏好设置中单独打开，由一个美元符号将公式围起来；name=\prod \frac&#123;1&#125;&#123;i^2&#125;$</span></span><br><span class="line"><span class="emphasis">*</span>2.行外公式，直接按Ctrl+Shift+M；(双$+回车也可做到)</span><br><span class="line">注：上标和下标可以使用数学表达式来获取</span><br></pre></td></tr></table></figure>
-
-
-
-<p>name=∏1i2$(1)(1)name=∏1i2$</p>
-<h2 id="4-引用"><a href="#4-引用" class="headerlink" title="4.引用"></a>4.引用</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&gt;+空格    或按快捷键Ctrl+Shift+Q</span><br></pre></td></tr></table></figure>
-
-<h2 id="5-注释"><a href="#5-注释" class="headerlink" title="5.注释"></a>5.注释</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">要添加注释的文字</span><br><span class="line">这是我们的标号[^1]</span><br><span class="line">[^1]:标号的含义</span><br></pre></td></tr></table></figure>
-
-<p>这是我们的标号[<a href="https://www.cnblogs.com/ChenChunChang/p/15331526.html#fn1">1]</a></p>
-<h2 id="6-表情"><a href="#6-表情" class="headerlink" title="6.表情"></a>6.表情</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">表情</span><br></pre></td></tr></table></figure>
-
-<h2 id="7-单词"><a href="#7-单词" class="headerlink" title="7.单词"></a>7.单词</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">:单词:</span><br></pre></td></tr></table></figure>
-
-<h2 id="8-目录"><a href="#8-目录" class="headerlink" title="8.目录"></a>8.目录</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">## </span></span><br><span class="line"></span><br><span class="line">[TOC]</span><br></pre></td></tr></table></figure>
-
-<h1 id="三、Typora快捷键整合"><a href="#三、Typora快捷键整合" class="headerlink" title="三、Typora快捷键整合"></a>三、Typora快捷键整合</h1><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">Ctrl+1  一阶标题    </span><br><span class="line">Ctrl+2  二阶标题    </span><br><span class="line">Ctrl+3  三阶标题    </span><br><span class="line">Ctrl+4  四阶标题   </span><br><span class="line">Ctrl+5  五阶标题    </span><br><span class="line">Ctrl+6  六阶标题 </span><br><span class="line">Ctrl+B  字体加粗</span><br><span class="line">Ctrl+T  创建表格</span><br><span class="line">Ctrl+I  字体倾斜</span><br><span class="line">Ctrl+U  下划线</span><br><span class="line">Ctrl+Home   返回Typora顶部</span><br><span class="line">Ctrl+End    返回Typora底部</span><br><span class="line">Ctrl+L  选中某句话   </span><br><span class="line">Ctrl+K  创建超链接</span><br><span class="line">Ctrl+D  选中某个单词  </span><br><span class="line">Ctrl+F  搜索</span><br><span class="line">Ctrl+E  选中相同格式的文字   </span><br><span class="line">Ctrl+H  搜索并替换</span><br><span class="line">Alt+Shift+5 删除线 </span><br><span class="line">Ctrl+Shift+I    插入图片</span><br><span class="line">Ctrl+Shift+M    公式块 </span><br><span class="line">Ctrl+Shift+Q    引用</span><br><span class="line">Ctrl+Shift+k    代码块</span><br><span class="line">注：一些实体符号需要在实体符号之前加”\”才能够显示</span><br></pre></td></tr></table></figure>
-
-
-
-]]></content>
-      <categories>
-        <category>搭建博客</category>
-      </categories>
-      <tags>
-        <tag>搭建博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo搭建博客二</title>
-    <url>/2021/12/26/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E4%BA%8C/</url>
-    <content><![CDATA[<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226184541.jpeg" alt="img"></p>
-<h1 id="安装hexo，并将hexo部署到GitHub"><a href="#安装hexo，并将hexo部署到GitHub" class="headerlink" title="安装hexo，并将hexo部署到GitHub"></a>安装hexo，并将hexo部署到GitHub</h1><span id="more"></span>
-
-<p>[toc]</p>
-<h1 id="一、安装hexo"><a href="#一、安装hexo" class="headerlink" title="一、安装hexo"></a>一、安装hexo</h1><h2 id="1-1、安装hexo"><a href="#1-1、安装hexo" class="headerlink" title="1.1、安装hexo"></a>1.1、安装hexo</h2><p><strong>1、任意位置右键git bush here，输入以下命令</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226194501.png" alt="Image"></p>
-<p><strong>如果有如下报错：说明你之前安装过，去对应的目录下删除</strong></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226194544.png" alt="Image"></p>
-<p><strong>删除下面两个文件夹：</strong></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226194552.png" alt="Image"></p>
-<p><strong>然后重新输入上面的命令</strong></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226194716.png" alt="Image"></p>
-<p><strong>表示安装成功</strong></p>
-<h2 id="1-2、初始化hexo"><a href="#1-2、初始化hexo" class="headerlink" title="1.2、初始化hexo"></a>1.2、初始化hexo</h2><p><strong>1、新建一个文件放置博客</strong></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226194010.png" alt="image-20211226194010006"></p>
-<p>输入命令：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">hexo init</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226195016.png" alt="Image"></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226195024.png" alt="Image"></p>
-<p><strong>此时在你的Blog文件夹中就可以看到如下内容</strong></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226195049.png" alt="Image"></p>
-<h2 id="1-3、启动本地服务器查看"><a href="#1-3、启动本地服务器查看" class="headerlink" title="1.3、启动本地服务器查看"></a>1.3、启动本地服务器查看</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">在Blog文件家中右键 git bush here</span><br><span class="line">输入：</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226195240.png" alt="Image"></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226195305.png" alt="Image"></p>
-<p><strong>访问<a href="http://localhost:4000/">http://localhost:4000</a></strong></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226195406.png" alt="Image"></p>
-<h1 id="二、将hexo部署到github"><a href="#二、将hexo部署到github" class="headerlink" title="二、将hexo部署到github"></a>二、将hexo部署到github</h1><h2 id="2-1、登录github，创建一个仓库"><a href="#2-1、登录github，创建一个仓库" class="headerlink" title="2.1、登录github，创建一个仓库"></a>2.1、登录github，创建一个仓库</h2><p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226195539.png" alt="Image"></p>
-<h2 id="2-2、设置github-Pages"><a href="#2-2、设置github-Pages" class="headerlink" title="2.2、设置github Pages"></a>2.2、设置github Pages</h2><p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226195549.png" alt="Image"></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226195603.png" alt="Image"></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226195613.png" alt="Image"></p>
-<h2 id="2-3、添加SSH-key到github"><a href="#2-3、添加SSH-key到github" class="headerlink" title="2.3、添加SSH key到github"></a>2.3、添加SSH key到github</h2><p><strong>删除原来的.ssh文件夹中用不到的SSH key</strong></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226195855.png" alt="Image"></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Blog中右键git bush here输入以下命令</span><br><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;your_emial@examle.com&quot;</span> 生成新的ssh key，邮箱填写你github的邮箱</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226195935.png" alt="Image"></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226195944.png" alt="Image"></p>
-<p><strong>进入github的全局setting中</strong></p>
-<img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226200014.png" alt="Image" style="zoom: 80%;" />
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226200021.png" alt="Image"></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226200029.png" alt="Image"></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226200043.png" alt="Image"></p>
-<h2 id="2-4、修改站点配置文件"><a href="#2-4、修改站点配置文件" class="headerlink" title="2.4、修改站点配置文件"></a>2.4、修改站点配置文件</h2><p><font color='red'><strong>以后Blog文件夹中的_config.yml文件统称为：站点配置文件</strong></font></p>
-<p><font color='red'><strong>以后next文件夹中的_config.yml文件统称为：主题配置文件</strong></font></p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">在站点配置文件的最后，修改以下内容：</span></span><br><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/one-command-deployment</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:codefishyyf/codefishyyf.github.io.git</span> <span class="comment"># 这里的网址填你自己的</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226200356.png" alt="Image"></p>
-<p>修改完成之后，记得保存。</p>
-<p><strong>在Blog中右键git bush here输入以下命令，添加一个扩展命令</strong></p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226200507.png" alt="Image"></p>
-<h2 id="2-5、查看hexo是否部署到github"><a href="#2-5、查看hexo是否部署到github" class="headerlink" title="2.5、查看hexo是否部署到github"></a>2.5、查看hexo是否部署到github</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Blog中右键git bush here输入以下命令：</span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-
-<p><strong>可以看到master或main分支中已经部署了新文件</strong></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226200627.png" alt="Image"></p>
-<p>codefishyyf.github.io可以访问自己的博客啦【你自己的博客访问地址】</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226200654.png" alt="Image"></p>
-]]></content>
-      <categories>
-        <category>搭建博客</category>
-      </categories>
-      <tags>
-        <tag>搭建博客</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo搭建博客四</title>
-    <url>/2021/12/26/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%9B%9B/</url>
-    <content><![CDATA[<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226184422.png"></p>
-<h1 id="设置自己的域名、添加valine评论、设置PicGo-github图床"><a href="#设置自己的域名、添加valine评论、设置PicGo-github图床" class="headerlink" title="设置自己的域名、添加valine评论、设置PicGo+github图床"></a>设置自己的域名、添加valine评论、设置PicGo+github图床</h1><span id="more"></span>
-
-<p>[toc]</p>
-<h1 id="一、主题配置文件–添加自定义404页面"><a href="#一、主题配置文件–添加自定义404页面" class="headerlink" title="一、主题配置文件–添加自定义404页面"></a>一、主题配置文件–添加自定义404页面</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">在blog下右键git bush here,输入以下内容：</span><br><span class="line">hexo new page 404</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226212609.png" alt="Image"></p>
-<p>修改404页面中的index.md头部信息：</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226212646.png" alt="Image"></p>
-<p><strong>在404免费模板中复制自己想要的页面代码<a href="https://404.life/">https://404.life/</a></strong></p>
-<p><strong>css和js放到index.md同级目录下，html放到index.md文件中。</strong></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226212750.png" alt="Image"></p>
-<p><strong>修改html中css和js的路径</strong></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226212805.png" alt="Image"></p>
-<p><strong>修改html中返回首页的地址</strong></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226212818.png" alt="Image"></p>
-<h1 id="二、主题配置文件–设置valine评论"><a href="#二、主题配置文件–设置valine评论" class="headerlink" title="二、主题配置文件–设置valine评论"></a>二、主题配置文件–设置valine评论</h1><p>进入valine官网：<a href="https://www.leancloud.cn/">https://www.leancloud.cn/</a></p>
-<p>注册登录</p>
-<p>点击控制台–创建应用</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226212905.png" alt="Image"></p>
-<p>点击设置–应用凭证</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226212929.png" alt="Image"></p>
-<p>在主题配置文件中找到valine：</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226212941.png" alt="Image"></p>
-<p>修改之后就是：</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226212954.png" alt="Image"></p>
-<p>comments设置如下：</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226213007.png" alt="Image"></p>
-<p>设置valine的头像<br>        可以在配置文件中找到</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226213035.png" alt="Image"></p>
-<p>将mm替换成monsterid</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226213055.png" alt="Image"></p>
-<h1 id="三、主题配置文件–为博客设置自己的域名"><a href="#三、主题配置文件–为博客设置自己的域名" class="headerlink" title="三、主题配置文件–为博客设置自己的域名"></a>三、主题配置文件–为博客设置自己的域名</h1><p>1、博客申请，我用的是阿里云买的一个域名，以.top为后缀的域名codefishyyf.top，比较便宜</p>
-<p>2、DNS修改  在阿里云的控制台中，打开域名控制台–》基本管理–》DNS修改-默认的域名DNS使用的是万网DNS：<a href="http://dns29.hichina.com/">dns29.hichina.com</a>和<a href="http://dns30.hichina.com/">dns30.hichina.com</a></p>
-<p>3、域名添加DNS解析：  github官网提供了两个主机IP地址：192.30.252.153和192.30.252.154，将这两个作为主机地址，给域名的DNS解析添加两个A记录，然后再添加一个CNAME记录，主机地址填的使我们原来用来访问github博客的地址：我的是codefishyyf.github.io,添加完成后如下：</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226213155.png" alt="Image"></p>
-<p>4、如果出现了不是私密连接的，或访问404的问题，那就在本地win+R，ping codefishyyf.github.io</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226213213.png" alt="Image"></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226213224.png" alt="Image"></p>
-<p>5、在Blog文件的source目录下面创建一个文件，取名叫CNAME（无后缀）里面保存的就是codefishyyf.top</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226213237.png" alt="Image"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Blog中右键git bush here输入以下命令：</span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-
-<p>6、域名绑定</p>
-<p>打开github在博客仓库中的setting中设置Custom domain内容为我们的域名</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226213412.png" alt="Image"></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226213414.png" alt="Image"></p>
-<p>7、在站点配置文件中找到url设置为：url: <a href="https://codefishyyf.github.io/">https://codefishyyf.github.io</a></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226213434.png" alt="Image"></p>
-<p>8、通过域名访问博客</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226213455.png" alt="Image"></p>
-<h1 id="四、主题配置文件–typora-github-picgo解决图片问题"><a href="#四、主题配置文件–typora-github-picgo解决图片问题" class="headerlink" title="四、主题配置文件–typora+github+picgo解决图片问题"></a>四、主题配置文件–typora+github+picgo解决图片问题</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">typora+picgo+github</span><br><span class="line">typora版本：0.10.11（beta）</span><br><span class="line">picgo版本：2.3.0-beta.3</span><br></pre></td></tr></table></figure>
-
-<p>1、在github中创建一个新的仓库比如：cloudimg</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226213547.png" alt="Image"></p>
-<p>2、创建token并复制保存</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226213605.png" alt="Image"></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226213616.png" alt="Image"></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226213630.png" alt="Image"></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226213646.png" alt="Image"></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226213646.png" alt="Image"></p>
-<p>3、PicGo客户端配置双击安装picgo</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226213657.png" alt="Image"></p>
-<p>然后关于上传的快捷键设置。默认的是 Mac 按键，推荐改成 Ctrl + alt +c。</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226213720.png" alt="Image"></p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226213730.png" alt="Image"></p>
 ]]></content>
       <categories>
         <category>搭建博客</category>
@@ -472,19 +341,298 @@
       </tags>
   </entry>
   <entry>
-    <title>日志实现JUL</title>
-    <url>/2022/01/09/%E6%97%A5%E5%BF%97%E5%AE%9E%E7%8E%B0JUL/</url>
-    <content><![CDATA[<span id="more"></span>
+    <title>hexo搭建博客二</title>
+    <url>/2021/12/26/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E4%BA%8C/</url>
+    <content><![CDATA[<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226184541.jpeg" alt="img"></p>
+<h1 id="安装hexo，并将hexo部署到GitHub"><a href="#安装hexo，并将hexo部署到GitHub" class="headerlink" title="安装hexo，并将hexo部署到GitHub"></a>安装hexo，并将hexo部署到GitHub</h1><span id="more"></span>
 
 <p>[toc]</p>
+<h1 id="一、安装hexo"><a href="#一、安装hexo" class="headerlink" title="一、安装hexo"></a>一、安装hexo</h1><h2 id="1-1、安装hexo"><a href="#1-1、安装hexo" class="headerlink" title="1.1、安装hexo"></a>1.1、安装hexo</h2><p><strong>1、任意位置右键git bush here，输入以下命令</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226194501.png" alt="Image"></p>
+<p><strong>如果有如下报错：说明你之前安装过，去对应的目录下删除</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226194544.png" alt="Image"></p>
+<p><strong>删除下面两个文件夹：</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226194552.png" alt="Image"></p>
+<p><strong>然后重新输入上面的命令</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226194716.png" alt="Image"></p>
+<p><strong>表示安装成功</strong></p>
+<h2 id="1-2、初始化hexo"><a href="#1-2、初始化hexo" class="headerlink" title="1.2、初始化hexo"></a>1.2、初始化hexo</h2><p><strong>1、新建一个文件放置博客</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226194010.png" alt="image-20211226194010006"></p>
+<p>输入命令：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">hexo init</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226195016.png" alt="Image"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226195024.png" alt="Image"></p>
+<p><strong>此时在你的Blog文件夹中就可以看到如下内容</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226195049.png" alt="Image"></p>
+<h2 id="1-3、启动本地服务器查看"><a href="#1-3、启动本地服务器查看" class="headerlink" title="1.3、启动本地服务器查看"></a>1.3、启动本地服务器查看</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">在Blog文件家中右键 git bush here</span><br><span class="line">输入：</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226195240.png" alt="Image"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226195305.png" alt="Image"></p>
+<p><strong>访问<a href="http://localhost:4000/">http://localhost:4000</a></strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226195406.png" alt="Image"></p>
+<h1 id="二、将hexo部署到github"><a href="#二、将hexo部署到github" class="headerlink" title="二、将hexo部署到github"></a>二、将hexo部署到github</h1><h2 id="2-1、登录github，创建一个仓库"><a href="#2-1、登录github，创建一个仓库" class="headerlink" title="2.1、登录github，创建一个仓库"></a>2.1、登录github，创建一个仓库</h2><p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226195539.png" alt="Image"></p>
+<h2 id="2-2、设置github-Pages"><a href="#2-2、设置github-Pages" class="headerlink" title="2.2、设置github Pages"></a>2.2、设置github Pages</h2><p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226195549.png" alt="Image"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226195603.png" alt="Image"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226195613.png" alt="Image"></p>
+<h2 id="2-3、添加SSH-key到github"><a href="#2-3、添加SSH-key到github" class="headerlink" title="2.3、添加SSH key到github"></a>2.3、添加SSH key到github</h2><p><strong>删除原来的.ssh文件夹中用不到的SSH key</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226195855.png" alt="Image"></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Blog中右键git bush here输入以下命令</span><br><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;your_emial@examle.com&quot;</span> 生成新的ssh key，邮箱填写你github的邮箱</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226195935.png" alt="Image"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226195944.png" alt="Image"></p>
+<p><strong>进入github的全局setting中</strong></p>
+<img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226200014.png" alt="Image" style="zoom: 80%;" />
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226200021.png" alt="Image"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226200029.png" alt="Image"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226200043.png" alt="Image"></p>
+<h2 id="2-4、修改站点配置文件"><a href="#2-4、修改站点配置文件" class="headerlink" title="2.4、修改站点配置文件"></a>2.4、修改站点配置文件</h2><p><font color='red'><strong>以后Blog文件夹中的_config.yml文件统称为：站点配置文件</strong></font></p>
+<p><font color='red'><strong>以后next文件夹中的_config.yml文件统称为：主题配置文件</strong></font></p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">在站点配置文件的最后，修改以下内容：</span></span><br><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/one-command-deployment</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:codefishyyf/codefishyyf.github.io.git</span> <span class="comment"># 这里的网址填你自己的</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226200356.png" alt="Image"></p>
+<p>修改完成之后，记得保存。</p>
+<p><strong>在Blog中右键git bush here输入以下命令，添加一个扩展命令</strong></p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226200507.png" alt="Image"></p>
+<h2 id="2-5、查看hexo是否部署到github"><a href="#2-5、查看hexo是否部署到github" class="headerlink" title="2.5、查看hexo是否部署到github"></a>2.5、查看hexo是否部署到github</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Blog中右键git bush here输入以下命令：</span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<p><strong>可以看到master或main分支中已经部署了新文件</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226200627.png" alt="Image"></p>
+<p>codefishyyf.github.io可以访问自己的博客啦【你自己的博客访问地址】</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226200654.png" alt="Image"></p>
 ]]></content>
+      <categories>
+        <category>搭建博客</category>
+      </categories>
+      <tags>
+        <tag>搭建博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo搭建博客五</title>
+    <url>/2021/12/26/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E4%BA%94/</url>
+    <content><![CDATA[<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226184204.jpeg" alt="img"></p>
+<h1 id="Typora使用"><a href="#Typora使用" class="headerlink" title="Typora使用"></a>Typora使用</h1><span id="more"></span>
+
+<p>[toc]</p>
+<h1 id="一、对文字的特殊标注"><a href="#一、对文字的特殊标注" class="headerlink" title="一、对文字的特殊标注"></a>一、对文字的特殊标注</h1><h2 id="1-标题"><a href="#1-标题" class="headerlink" title="1.标题"></a>1.标题</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># 一阶标题  或者快捷键Ctrl+1</span></span><br><span class="line"><span class="section">## 二阶标题 或者快捷键Ctrl+2</span></span><br><span class="line"><span class="section">### 三阶标题    或者快捷键Ctrl+3</span></span><br><span class="line"><span class="section">#### 四阶标题   或者快捷键Ctrl+4</span></span><br><span class="line"><span class="section">##### 五阶标题  或者快捷键Ctrl+5</span></span><br><span class="line"><span class="section">###### 六阶标题 或者快捷键Ctrl+6</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-下划线"><a href="#2-下划线" class="headerlink" title="2.下划线"></a>2.下划线</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">u</span>&gt;</span></span>下划线的内容<span class="xml"><span class="tag">&lt;/<span class="name">u</span>&gt;</span></span> 或按快捷键Ctrl+U</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-字体加粗"><a href="#3-字体加粗" class="headerlink" title="3.字体加粗"></a>3.字体加粗</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="strong">**加粗内容**</span>    或按快捷键Ctrl+B</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-斜体"><a href="#4-斜体" class="headerlink" title="4.斜体"></a>4.斜体</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="emphasis">*倾斜内容*</span>  或按快捷键Ctrl+I</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-删除线"><a href="#5-删除线" class="headerlink" title="5.删除线"></a>5.删除线</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">~~删除线的内容~~  或按快捷键Alt+Shift+5</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-文字高亮"><a href="#6-文字高亮" class="headerlink" title="6.文字高亮"></a>6.文字高亮</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">==我是最重要的==</span><br></pre></td></tr></table></figure>
+
+<h2 id="7-角标"><a href="#7-角标" class="headerlink" title="7.角标"></a>7.角标</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">x^2^    H~2~O</span><br></pre></td></tr></table></figure>
+
+<h2 id="8-文本居中"><a href="#8-文本居中" class="headerlink" title="8.文本居中"></a>8.文本居中</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">center</span>&gt;</span></span>这是要居中的文本内容<span class="xml"><span class="tag">&lt;/<span class="name">center</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<h2 id="9-list"><a href="#9-list" class="headerlink" title="9.list"></a>9.list</h2><h3 id="1-有序"><a href="#1-有序" class="headerlink" title="1.有序"></a>1.有序</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">数字+英文小数点(.)+空格</span><br></pre></td></tr></table></figure>
+
+<p>1.策划目标<br>2.战前准备<br>3.开始行动</p>
+<h3 id="2-无序"><a href="#2-无序" class="headerlink" title="2.无序"></a>2.无序</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">+</span> 、- 、<span class="emphasis">* 创建无序列，任意数字开始+空格创建有序列表</span></span><br></pre></td></tr></table></figure>
+
+<p>猪<br>兔<br>马</p>
+<h2 id="10-Todolist"><a href="#10-Todolist" class="headerlink" title="10.Todolist"></a>10.Todolist</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> [ ] 参加会议</span><br><span class="line"><span class="bullet">-</span> [x] 中超足球赛</span><br></pre></td></tr></table></figure>
+
+<p>[ ] 参加会议<br>[x] 中超足球赛</p>
+<h2 id="11-Table"><a href="#11-Table" class="headerlink" title="11.Table"></a>11.Table</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">快捷键Ctrl+T弹出对话框</span><br></pre></td></tr></table></figure>
+
+<h2 id="12-分割线"><a href="#12-分割线" class="headerlink" title="12.分割线"></a>12.分割线</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="strong">**<span class="emphasis">*+回车  </span></span></span><br><span class="line"><span class="emphasis"><span class="strong">---+回车  </span></span></span><br></pre></td></tr></table></figure>
+
+<h1 id="二、插入"><a href="#二、插入" class="headerlink" title="二、插入"></a>二、插入</h1><h2 id="1-图片"><a href="#1-图片" class="headerlink" title="1.图片"></a>1.图片</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">图片内容</span>](<span class="link">http://t10.baidu.com/it/u=1069603383,3074552113&amp;fm=170&amp;s=771B15C75C12D8D61C3C69FB0300501F&amp;w=640&amp;h=426&amp;img.JPEG</span>)</span><br><span class="line"> 也可使用快捷键Ctrl+K</span><br><span class="line">PS：也可将图片直接拖拽进来，自动生成链接</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-链接"><a href="#2-链接" class="headerlink" title="2.链接"></a>2.链接</h2><p><em>(PS：按住Ctrl点击链接可直接打开。)</em></p>
+<h3 id="1-内行式"><a href="#1-内行式" class="headerlink" title="1.内行式"></a>1.内行式</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">百度一下，你就知道</span>](<span class="link">https://www.baidu.com/</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-参考式"><a href="#2-参考式" class="headerlink" title="2.参考式"></a>2.参考式</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[<span class="string">百度一下，你就知道</span>][<span class="symbol"></span>]https://www.baidu.com/          # 第二个括号内可任意填写(不显)</span><br><span class="line"></span><br><span class="line">[<span class="string">百度一下，你就知道</span>][<span class="symbol"></span>]https://www.baidu.com/</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-快速链接"><a href="#3-快速链接" class="headerlink" title="3.快速链接"></a>3.快速链接</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="xml">&lt;http://www.baidu.com&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-数学公式（简）"><a href="#3-数学公式（简）" class="headerlink" title="3.数学公式（简）"></a>3.数学公式（简）</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">Typora支持加入用LaTeX写成的数学公式，并且在软件界面下用MathJax直接渲染。</span><br><span class="line"><span class="emphasis">*1.行内公式(inline math)，可以在偏好设置中单独打开，由一个美元符号将公式围起来；name=\prod \frac&#123;1&#125;&#123;i^2&#125;$</span></span><br><span class="line"><span class="emphasis">*</span>2.行外公式，直接按Ctrl+Shift+M；(双$+回车也可做到)</span><br><span class="line">注：上标和下标可以使用数学表达式来获取</span><br></pre></td></tr></table></figure>
+
+
+
+<p>name=∏1i2$(1)(1)name=∏1i2$</p>
+<h2 id="4-引用"><a href="#4-引用" class="headerlink" title="4.引用"></a>4.引用</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&gt;+空格    或按快捷键Ctrl+Shift+Q</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-注释"><a href="#5-注释" class="headerlink" title="5.注释"></a>5.注释</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">要添加注释的文字</span><br><span class="line">这是我们的标号[^1]</span><br><span class="line">[^1]:标号的含义</span><br></pre></td></tr></table></figure>
+
+<p>这是我们的标号[<a href="https://www.cnblogs.com/ChenChunChang/p/15331526.html#fn1">1]</a></p>
+<h2 id="6-表情"><a href="#6-表情" class="headerlink" title="6.表情"></a>6.表情</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">表情</span><br></pre></td></tr></table></figure>
+
+<h2 id="7-单词"><a href="#7-单词" class="headerlink" title="7.单词"></a>7.单词</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">:单词:</span><br></pre></td></tr></table></figure>
+
+<h2 id="8-目录"><a href="#8-目录" class="headerlink" title="8.目录"></a>8.目录</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">## </span></span><br><span class="line"></span><br><span class="line">[TOC]</span><br></pre></td></tr></table></figure>
+
+<h1 id="三、Typora快捷键整合"><a href="#三、Typora快捷键整合" class="headerlink" title="三、Typora快捷键整合"></a>三、Typora快捷键整合</h1><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">Ctrl+1  一阶标题    </span><br><span class="line">Ctrl+2  二阶标题    </span><br><span class="line">Ctrl+3  三阶标题    </span><br><span class="line">Ctrl+4  四阶标题   </span><br><span class="line">Ctrl+5  五阶标题    </span><br><span class="line">Ctrl+6  六阶标题 </span><br><span class="line">Ctrl+B  字体加粗</span><br><span class="line">Ctrl+T  创建表格</span><br><span class="line">Ctrl+I  字体倾斜</span><br><span class="line">Ctrl+U  下划线</span><br><span class="line">Ctrl+Home   返回Typora顶部</span><br><span class="line">Ctrl+End    返回Typora底部</span><br><span class="line">Ctrl+L  选中某句话   </span><br><span class="line">Ctrl+K  创建超链接</span><br><span class="line">Ctrl+D  选中某个单词  </span><br><span class="line">Ctrl+F  搜索</span><br><span class="line">Ctrl+E  选中相同格式的文字   </span><br><span class="line">Ctrl+H  搜索并替换</span><br><span class="line">Alt+Shift+5 删除线 </span><br><span class="line">Ctrl+Shift+I    插入图片</span><br><span class="line">Ctrl+Shift+M    公式块 </span><br><span class="line">Ctrl+Shift+Q    引用</span><br><span class="line">Ctrl+Shift+k    代码块</span><br><span class="line">注：一些实体符号需要在实体符号之前加”\”才能够显示</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>搭建博客</category>
+      </categories>
+      <tags>
+        <tag>搭建博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo搭建博客四</title>
+    <url>/2021/12/26/hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E5%9B%9B/</url>
+    <content><![CDATA[<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226184422.png"></p>
+<h1 id="设置自己的域名、添加valine评论、设置PicGo-github图床"><a href="#设置自己的域名、添加valine评论、设置PicGo-github图床" class="headerlink" title="设置自己的域名、添加valine评论、设置PicGo+github图床"></a>设置自己的域名、添加valine评论、设置PicGo+github图床</h1><span id="more"></span>
+
+<p>[toc]</p>
+<h1 id="一、主题配置文件–添加自定义404页面"><a href="#一、主题配置文件–添加自定义404页面" class="headerlink" title="一、主题配置文件–添加自定义404页面"></a>一、主题配置文件–添加自定义404页面</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">在blog下右键git bush here,输入以下内容：</span><br><span class="line">hexo new page 404</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226212609.png" alt="Image"></p>
+<p>修改404页面中的index.md头部信息：</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226212646.png" alt="Image"></p>
+<p><strong>在404免费模板中复制自己想要的页面代码<a href="https://404.life/">https://404.life/</a></strong></p>
+<p><strong>css和js放到index.md同级目录下，html放到index.md文件中。</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226212750.png" alt="Image"></p>
+<p><strong>修改html中css和js的路径</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226212805.png" alt="Image"></p>
+<p><strong>修改html中返回首页的地址</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226212818.png" alt="Image"></p>
+<h1 id="二、主题配置文件–设置valine评论"><a href="#二、主题配置文件–设置valine评论" class="headerlink" title="二、主题配置文件–设置valine评论"></a>二、主题配置文件–设置valine评论</h1><p>进入valine官网：<a href="https://www.leancloud.cn/">https://www.leancloud.cn/</a></p>
+<p>注册登录</p>
+<p>点击控制台–创建应用</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226212905.png" alt="Image"></p>
+<p>点击设置–应用凭证</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226212929.png" alt="Image"></p>
+<p>在主题配置文件中找到valine：</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226212941.png" alt="Image"></p>
+<p>修改之后就是：</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226212954.png" alt="Image"></p>
+<p>comments设置如下：</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226213007.png" alt="Image"></p>
+<p>设置valine的头像<br>        可以在配置文件中找到</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226213035.png" alt="Image"></p>
+<p>将mm替换成monsterid</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226213055.png" alt="Image"></p>
+<h1 id="三、主题配置文件–为博客设置自己的域名"><a href="#三、主题配置文件–为博客设置自己的域名" class="headerlink" title="三、主题配置文件–为博客设置自己的域名"></a>三、主题配置文件–为博客设置自己的域名</h1><p>1、博客申请，我用的是阿里云买的一个域名，以.top为后缀的域名codefishyyf.top，比较便宜</p>
+<p>2、DNS修改  在阿里云的控制台中，打开域名控制台–》基本管理–》DNS修改-默认的域名DNS使用的是万网DNS：<a href="http://dns29.hichina.com/">dns29.hichina.com</a>和<a href="http://dns30.hichina.com/">dns30.hichina.com</a></p>
+<p>3、域名添加DNS解析：  github官网提供了两个主机IP地址：192.30.252.153和192.30.252.154，将这两个作为主机地址，给域名的DNS解析添加两个A记录，然后再添加一个CNAME记录，主机地址填的使我们原来用来访问github博客的地址：我的是codefishyyf.github.io,添加完成后如下：</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226213155.png" alt="Image"></p>
+<p>4、如果出现了不是私密连接的，或访问404的问题，那就在本地win+R，ping codefishyyf.github.io</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226213213.png" alt="Image"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226213224.png" alt="Image"></p>
+<p>5、在Blog文件的source目录下面创建一个文件，取名叫CNAME（无后缀）里面保存的就是codefishyyf.top</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226213237.png" alt="Image"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Blog中右键git bush here输入以下命令：</span><br><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<p>6、域名绑定</p>
+<p>打开github在博客仓库中的setting中设置Custom domain内容为我们的域名</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226213412.png" alt="Image"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226213414.png" alt="Image"></p>
+<p>7、在站点配置文件中找到url设置为：url: <a href="https://codefishyyf.github.io/">https://codefishyyf.github.io</a></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226213434.png" alt="Image"></p>
+<p>8、通过域名访问博客</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226213455.png" alt="Image"></p>
+<h1 id="四、主题配置文件–typora-github-picgo解决图片问题"><a href="#四、主题配置文件–typora-github-picgo解决图片问题" class="headerlink" title="四、主题配置文件–typora+github+picgo解决图片问题"></a>四、主题配置文件–typora+github+picgo解决图片问题</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">typora+picgo+github</span><br><span class="line">typora版本：0.10.11（beta）</span><br><span class="line">picgo版本：2.3.0-beta.3</span><br></pre></td></tr></table></figure>
+
+<p>1、在github中创建一个新的仓库比如：cloudimg</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226213547.png" alt="Image"></p>
+<p>2、创建token并复制保存</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226213605.png" alt="Image"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226213616.png" alt="Image"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226213630.png" alt="Image"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226213646.png" alt="Image"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226213646.png" alt="Image"></p>
+<p>3、PicGo客户端配置双击安装picgo</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226213657.png" alt="Image"></p>
+<p>然后关于上传的快捷键设置。默认的是 Mac 按键，推荐改成 Ctrl + alt +c。</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226213720.png" alt="Image"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226213730.png" alt="Image"></p>
+]]></content>
+      <categories>
+        <category>搭建博客</category>
+      </categories>
+      <tags>
+        <tag>搭建博客</tag>
+      </tags>
   </entry>
   <entry>
     <title>数组</title>
     <url>/2022/01/07/%E6%95%B0%E7%BB%84/</url>
     <content><![CDATA[<span id="more"></span>
 
-<p>[toc]</p>
+<h1 id="一、数组的概述"><a href="#一、数组的概述" class="headerlink" title="一、数组的概述"></a>一、数组的概述</h1><h2 id="1-1、数组"><a href="#1-1、数组" class="headerlink" title="1.1、数组"></a>1.1、数组</h2><p>是多个 <strong>相同类型数据</strong>按照 <strong>一定顺序排列</strong>的集合，并使用 <strong>一个名字命名，</strong>通过 <strong>编号</strong>的方式对这些数据进行统一的管理。</p>
+<h2 id="1-2、数组常见的概念"><a href="#1-2、数组常见的概念" class="headerlink" title="1.2、数组常见的概念"></a>1.2、数组常见的概念</h2><ul>
+<li>数组名：使用一个名字命名</li>
+<li>下标（或索引）：编号</li>
+<li>元素：相同类型的数据</li>
+<li>数组的长度：元素的个数</li>
+</ul>
+<h2 id="1-3、数组本身是引用数据类型"><a href="#1-3、数组本身是引用数据类型" class="headerlink" title="1.3、数组本身是引用数据类型"></a>1.3、数组本身是引用数据类型</h2><p>数组本身是<strong>引用数据类型</strong>，而数组中的元素可以是<strong>任何数据类型</strong>，包括基本数据类型和引用数据类型。</p>
+<h2 id="1-4、数组在内存中"><a href="#1-4、数组在内存中" class="headerlink" title="1.4、数组在内存中"></a>1.4、数组在内存中</h2><p>创建数组对象会在内存中开辟一整块 <strong>连续的空间，</strong>而数组名中引用的是这块连续空间的首地址。</p>
+<h2 id="1-5、数组的长度"><a href="#1-5、数组的长度" class="headerlink" title="1.5、数组的长度"></a>1.5、数组的长度</h2><p>数组的 <strong>长度一点确定，就不能修改</strong>。</p>
+<h2 id="1-6、数组的分类"><a href="#1-6、数组的分类" class="headerlink" title="1.6、数组的分类"></a>1.6、数组的分类</h2><ul>
+<li>按照维度分类<ul>
+<li>一维数组，二维数组、三维数组…</li>
+</ul>
+</li>
+<li>按照元素的数据类型分类<ul>
+<li>基本数据类型元素的数组、引用数据类型元素的数组（即对象数组）</li>
+</ul>
+</li>
+</ul>
+<h1 id="二、一维数组的使用"><a href="#二、一维数组的使用" class="headerlink" title="二、一维数组的使用"></a>二、一维数组的使用</h1><h2 id="2-1、一维数组的声明和初始化"><a href="#2-1、一维数组的声明和初始化" class="headerlink" title="2.1、一维数组的声明和初始化"></a>2.1、一维数组的声明和初始化</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codefish.array;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> codefishyyf</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@BelongsProject</span>: java</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@BelongsPackage</span>: com.codefish.array</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span> 2022-01-09 22:34</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>: 一维数组</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayTest</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//一维数组的声明和初始化</span></span><br><span class="line">		<span class="keyword">int</span> num;<span class="comment">//声明</span></span><br><span class="line">		num=<span class="number">10</span>;<span class="comment">//初始化</span></span><br><span class="line">		<span class="keyword">int</span> id =<span class="number">1001</span>;<span class="comment">//声明+初始化</span></span><br><span class="line"></span><br><span class="line">		<span class="comment">//静态初始化:数组的初始化和数组元素的赋值操作同时进行</span></span><br><span class="line">		<span class="keyword">int</span>[] ids;<span class="comment">//声明</span></span><br><span class="line">		ids=<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">1001</span>,<span class="number">1002</span>,<span class="number">1003</span>,<span class="number">1004</span>&#125;;<span class="comment">//初始化</span></span><br><span class="line">		<span class="keyword">int</span>[] ids1=<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;;<span class="comment">//声明+初始化</span></span><br><span class="line"></span><br><span class="line">		<span class="comment">//动态初始化:数组的初始化和数组元素的赋值操作分开进行</span></span><br><span class="line">		String[] names;<span class="comment">//声明</span></span><br><span class="line">		names=<span class="keyword">new</span> String[<span class="number">5</span>];<span class="comment">//初始化</span></span><br><span class="line">		String[] name=<span class="keyword">new</span> String[<span class="number">5</span>];<span class="comment">//声明+初始化</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-2、如何调用数组的指定位置的元素"><a href="#2-2、如何调用数组的指定位置的元素" class="headerlink" title="2.2、如何调用数组的指定位置的元素"></a>2.2、如何调用数组的指定位置的元素</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codefish.array;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> codefishyyf</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@BelongsProject</span>: java</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@BelongsPackage</span>: com.codefish.array</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span> 2022-01-09 22:43</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>: 数组元素的赋值和调用</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArraysTest1</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		String[] names=<span class="keyword">new</span> String[<span class="number">5</span>];</span><br><span class="line">		<span class="comment">//给数组指定元素赋值,通过索引的方式调用</span></span><br><span class="line">        <span class="comment">//数组的索引从0开始，到数组长度-1结束</span></span><br><span class="line">		names[<span class="number">0</span>]=<span class="string">&quot;张三&quot;</span>;</span><br><span class="line">		names[<span class="number">1</span>]=<span class="string">&quot;李四&quot;</span>;</span><br><span class="line">		names[<span class="number">2</span>]=<span class="string">&quot;王五&quot;</span>;</span><br><span class="line"></span><br><span class="line">		System.out.println(<span class="string">&quot;人名：&quot;</span>+names[<span class="number">0</span>]);<span class="comment">//人名：张三</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-3、如何获取数组的长度"><a href="#2-3、如何获取数组的长度" class="headerlink" title="2.3、如何获取数组的长度"></a>2.3、如何获取数组的长度</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codefish.array;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> codefishyyf</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@BelongsProject</span>: java</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@BelongsPackage</span>: com.codefish.array</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span> 2022-01-09 22:49</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>: 如何获取数组的长度</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Array2</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		String[] arr=<span class="keyword">new</span> String[<span class="number">6</span>];</span><br><span class="line">		<span class="comment">//如何获取数组的长度</span></span><br><span class="line">		<span class="comment">//数组中有一个length属性,可以获取数组的长度</span></span><br><span class="line">		System.out.println(arr.length);<span class="comment">//6</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-4、如何遍历数组"><a href="#2-4、如何遍历数组" class="headerlink" title="2.4、如何遍历数组"></a>2.4、如何遍历数组</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codefish.array;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> codefishyyf</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@BelongsProject</span>: java</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@BelongsPackage</span>: com.codefish.array</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span> 2022-01-09 22:52</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>: 如何遍历一维数组</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayTest3</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		String[] names=<span class="keyword">new</span> String[<span class="number">3</span>];</span><br><span class="line">		names[<span class="number">0</span>]=<span class="string">&quot;张三&quot;</span>;</span><br><span class="line">		names[<span class="number">1</span>]=<span class="string">&quot;李四&quot;</span>;</span><br><span class="line">		names[<span class="number">2</span>]=<span class="string">&quot;王五&quot;</span>;</span><br><span class="line">		<span class="comment">//如何遍历数组</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; names.length; i++) &#123;</span><br><span class="line">			System.out.println(names[i]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-5、数组元素的默认初始化值"><a href="#2-5、数组元素的默认初始化值" class="headerlink" title="2.5、数组元素的默认初始化值"></a>2.5、数组元素的默认初始化值</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">数组元素默认初始化值：</span><br><span class="line">	<span class="keyword">byte</span> <span class="keyword">short</span> <span class="keyword">int</span> <span class="keyword">long</span> 默认初始化值为<span class="number">0</span></span><br><span class="line">	<span class="keyword">float</span> <span class="keyword">double</span>        默认初始化值为<span class="number">0.0</span></span><br><span class="line">    <span class="keyword">char</span>				默认初始化值为<span class="string">&#x27;0&#x27;</span>,这个<span class="string">&#x27;0&#x27;</span>表示\u0000</span><br><span class="line">    <span class="keyword">boolean</span>				默认初始化值为<span class="keyword">false</span></span><br><span class="line">    引用数据类型			默认初始化值为<span class="keyword">null</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.codefish.array;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> codefishyyf</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@BelongsProject</span>: java</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@BelongsPackage</span>: com.codefish.array</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span> 2022-01-09 22:52</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>: 数组元素的默认初始化值</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayTest4</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//byte类型数组的默认初始化值</span></span><br><span class="line">		<span class="keyword">byte</span>[] byteArr=<span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">5</span>];</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; byteArr.length; i++) &#123;</span><br><span class="line">			System.out.println(byteArr[i]);<span class="comment">//0 0 0 0 0</span></span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">&quot;******************&quot;</span>);</span><br><span class="line">		<span class="comment">//short类型数组的默认初始化值</span></span><br><span class="line">		<span class="keyword">short</span>[] shortArr=<span class="keyword">new</span> <span class="keyword">short</span>[<span class="number">5</span>];</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; shortArr.length; i++) &#123;</span><br><span class="line">			System.out.println(shortArr[i]);<span class="comment">//0 0 0 0 0</span></span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">&quot;******************&quot;</span>);</span><br><span class="line">		<span class="comment">//int类型数组的默认初始化值</span></span><br><span class="line">		<span class="keyword">int</span>[] intArr=<span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">5</span>];</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; intArr.length; i++) &#123;</span><br><span class="line">			System.out.println(intArr[i]);<span class="comment">//0 0 0 0 0</span></span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">&quot;******************&quot;</span>);</span><br><span class="line">		<span class="comment">//long类型数组的默认初始化值</span></span><br><span class="line">		<span class="keyword">long</span>[] longArr=<span class="keyword">new</span> <span class="keyword">long</span>[<span class="number">5</span>];</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; longArr.length; i++) &#123;</span><br><span class="line">			System.out.println(longArr[i]);<span class="comment">//0 0 0 0 0</span></span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">&quot;******************&quot;</span>);</span><br><span class="line">		<span class="comment">//float类型数组的默认初始化值</span></span><br><span class="line">		<span class="keyword">float</span>[] floatArr=<span class="keyword">new</span> <span class="keyword">float</span>[<span class="number">5</span>];</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; floatArr.length; i++) &#123;</span><br><span class="line">			System.out.println(floatArr[i]);<span class="comment">//0.0  0.0  0.0  0.0  0.0</span></span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">&quot;******************&quot;</span>);</span><br><span class="line">		<span class="comment">//double类型数组的默认初始化值</span></span><br><span class="line">		<span class="keyword">double</span>[] doubleArr=<span class="keyword">new</span> <span class="keyword">double</span>[<span class="number">5</span>];</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; doubleArr.length; i++) &#123;</span><br><span class="line">			System.out.println(doubleArr[i]);<span class="comment">//0.0  0.0  0.0  0.0  0.0</span></span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">&quot;******************&quot;</span>);</span><br><span class="line"></span><br><span class="line">		<span class="comment">//char类型数组的默认初始化值</span></span><br><span class="line">		<span class="keyword">char</span>[] charArr=<span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">5</span>];</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; charArr.length; i++) &#123;</span><br><span class="line">			System.out.println(charArr[i]);<span class="comment">//</span></span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">&quot;******************&quot;</span>);</span><br><span class="line">		<span class="comment">//boolean类型数组的默认初始化值</span></span><br><span class="line">		<span class="keyword">boolean</span>[] booleanArr=<span class="keyword">new</span> <span class="keyword">boolean</span>[<span class="number">5</span>];</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; booleanArr.length; i++) &#123;</span><br><span class="line">			System.out.println(booleanArr[i]);<span class="comment">//false false false false false</span></span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">&quot;******************&quot;</span>);</span><br><span class="line"></span><br><span class="line">		<span class="comment">//String类型数组的默认初始化值</span></span><br><span class="line">		String[] stringArr=<span class="keyword">new</span> String[<span class="number">5</span>];</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; stringArr.length; i++) &#123;</span><br><span class="line">			System.out.println(stringArr[i]);<span class="comment">//null null null null null</span></span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(<span class="string">&quot;******************&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-6、数组的内存解析"><a href="#2-6、数组的内存解析" class="headerlink" title="2.6、数组的内存解析"></a>2.6、数组的内存解析</h2><p><strong>1、基本内存展示如下</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20220109233323.png"></p>
+<p><strong>2、int[] arr=new int[]{1,2,3};数组的内存解析</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20220109233849.png" alt="image-20220109233849553"></p>
+<p><strong>3、String[] arr1=new String[4];数组的内存解析</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20220109234321.png" alt="image-20220109234321469"></p>
+<p><strong>4、arr1[1]=”刘德华”；arr1[2]=”张学友”；赋值操作的数组的内存解析</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20220109234509.png" alt="image-20220109234509363"></p>
+<p><strong>5、arr1=new String[3];数组的内存解析</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20220109235004.png" alt="image-20220109234803062"></p>
+<h1 id="三、二维数组的使用"><a href="#三、二维数组的使用" class="headerlink" title="三、二维数组的使用"></a>三、二维数组的使用</h1><p>如果说可以把一维数组当成几何中的线性图形，那么二维数组就相当于是一个表格。对于二维数组的理解，我们可以看成是一维数组array1又作为另一个一维数组array2的元素而存在。其实，从数组底层的运行机制来看，其实没有多维数组。二维数组其实就是一维数组的嵌套。<strong>也就是说一维数组中的元素也是一维数组</strong>。</p>
+<h2 id="3-1、二维数组的声明和初始化"><a href="#3-1、二维数组的声明和初始化" class="headerlink" title="3.1、二维数组的声明和初始化"></a>3.1、二维数组的声明和初始化</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//二维数组的声明和初始化</span></span><br><span class="line">	<span class="comment">//静态初始化</span></span><br><span class="line">	<span class="keyword">int</span>[][] arr=<span class="keyword">new</span> <span class="keyword">int</span>[][]&#123;&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;,&#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;,&#123;<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;&#125;;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//动态初始化1</span></span><br><span class="line">	<span class="keyword">int</span>[][] arr1=<span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">1</span>][<span class="number">2</span>];</span><br><span class="line">	<span class="comment">//动态初始化2</span></span><br><span class="line">	<span class="keyword">int</span>[][] arr2=<span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>][];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-2、如何调用数组的指定位置的元素"><a href="#3-2、如何调用数组的指定位置的元素" class="headerlink" title="3.2、如何调用数组的指定位置的元素"></a>3.2、如何调用数组的指定位置的元素</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//如何调用二维数组指定位置上的元素</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span>[][] arr1=<span class="keyword">new</span> <span class="keyword">int</span>[][]&#123;&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;,&#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;,&#123;<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;,&#123;<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>&#125;&#125;;</span><br><span class="line">	<span class="comment">//获取元素</span></span><br><span class="line">	System.out.println(arr1[<span class="number">1</span>][<span class="number">2</span>]);<span class="comment">//4</span></span><br><span class="line">	System.out.println(arr1[<span class="number">3</span>][<span class="number">3</span>]);<span class="comment">//7</span></span><br><span class="line">	<span class="comment">//设置指定位置的元素:设置[3][2]位置的元素为0</span></span><br><span class="line">	System.out.println(arr1[<span class="number">3</span>][<span class="number">2</span>]);</span><br><span class="line">	arr1[<span class="number">3</span>][<span class="number">2</span>]=<span class="number">0</span>;</span><br><span class="line">	System.out.println(arr1[<span class="number">3</span>][<span class="number">2</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-3、如何获取数组的长度"><a href="#3-3、如何获取数组的长度" class="headerlink" title="3.3、如何获取数组的长度"></a>3.3、如何获取数组的长度</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//获取数组的长度</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span>[][] arr=<span class="keyword">new</span> <span class="keyword">int</span>[][]&#123;&#123;<span class="number">1</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">3</span>&#125;,&#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">3</span>&#125;,&#123;<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">3</span>&#125;,&#123;<span class="number">8</span>,<span class="number">8</span>,<span class="number">8</span>,<span class="number">4</span>&#125;,&#123;<span class="number">9</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>&#125;&#125;;</span><br><span class="line">	<span class="comment">//获取arr的数组长度</span></span><br><span class="line">	System.out.println(arr.length);<span class="comment">//5</span></span><br><span class="line">	<span class="comment">//获取arr[4]的数组长度</span></span><br><span class="line">	System.out.println(arr[<span class="number">4</span>].length);<span class="comment">//7</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-4、如何遍历数组"><a href="#3-4、如何遍历数组" class="headerlink" title="3.4、如何遍历数组"></a>3.4、如何遍历数组</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//如何遍历数组</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span>[][] arr=<span class="keyword">new</span> <span class="keyword">int</span>[][]&#123;&#123;<span class="number">1</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">3</span>&#125;,&#123;<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">3</span>&#125;,&#123;<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">3</span>&#125;,&#123;<span class="number">8</span>,<span class="number">8</span>,<span class="number">8</span>,<span class="number">4</span>&#125;,&#123;<span class="number">9</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>&#125;&#125;;</span><br><span class="line">	<span class="comment">//遍历arr数组</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; arr[i].length; j++) &#123;</span><br><span class="line">			System.out.println(arr[i][j]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//遍历arr[4]数组</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr[<span class="number">4</span>].length; i++) &#123;</span><br><span class="line">		System.out.println(arr[<span class="number">4</span>][i]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-5、数组元素的默认初始化值"><a href="#3-5、数组元素的默认初始化值" class="headerlink" title="3.5、数组元素的默认初始化值"></a>3.5、数组元素的默认初始化值</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">总结二维数组元素的默认初始化值：</span><br><span class="line">    针对于初始化方式一：比如：<span class="keyword">byte</span>[][] byteArr=<span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1</span>][<span class="number">3</span>];</span><br><span class="line">		外层元素的初始化值为：地址值</span><br><span class="line">        内层元素的初始化值为：    </span><br><span class="line">                <span class="keyword">byte</span> <span class="keyword">short</span> <span class="keyword">int</span> <span class="keyword">long</span> 默认初始化值为<span class="number">0</span></span><br><span class="line">                <span class="keyword">float</span> <span class="keyword">double</span>        默认初始化值为<span class="number">0.0</span></span><br><span class="line">                <span class="keyword">char</span>				默认初始化值为<span class="string">&#x27;0&#x27;</span>,这个<span class="string">&#x27;0&#x27;</span>表示\u0000</span><br><span class="line">                <span class="keyword">boolean</span>				默认初始化值为<span class="keyword">false</span></span><br><span class="line">                引用数据类型			默认初始化值为<span class="keyword">null</span></span><br><span class="line">    针对于初始化方式二:比如：<span class="keyword">int</span>[][] arr=<span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">4</span>][];</span><br><span class="line">		外层元素的初始化值为：<span class="keyword">null</span></span><br><span class="line">        内层元素的初始化值为：不能调用，否则报错。    </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//二维数组的默认初始化值</span></span><br><span class="line"><span class="comment">//规定：二维数组分为外层数组的元素，内存数组的元素</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//byte short int long float double boolean char String</span></span><br><span class="line">	<span class="keyword">byte</span>[][] byteArr=<span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1</span>][<span class="number">3</span>];</span><br><span class="line">	<span class="comment">//外层默认初始化值</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; byteArr.length; i++) &#123;</span><br><span class="line">		System.out.println(byteArr[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//[B@4554617c</span></span><br><span class="line">	<span class="comment">//内层默认初始化值</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; byteArr.length; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; byteArr[i].length; j++) &#123;</span><br><span class="line">			System.out.println(byteArr[i][j]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 0</span></span><br><span class="line">	<span class="comment">// 0</span></span><br><span class="line">	<span class="comment">// 0</span></span><br><span class="line">	System.out.println(<span class="string">&quot;***********************&quot;</span>);</span><br><span class="line">	<span class="keyword">short</span>[][] shortArr=<span class="keyword">new</span> <span class="keyword">short</span>[<span class="number">1</span>][<span class="number">3</span>];</span><br><span class="line">	<span class="comment">//外层默认初始化值</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; shortArr.length; i++) &#123;</span><br><span class="line">		System.out.println(shortArr[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//[S@74a14482</span></span><br><span class="line">	<span class="comment">//内层默认初始化值</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; shortArr.length; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; shortArr[i].length; j++) &#123;</span><br><span class="line">			System.out.println(shortArr[i][j]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 0</span></span><br><span class="line">	<span class="comment">// 0</span></span><br><span class="line">	<span class="comment">// 0</span></span><br><span class="line">	System.out.println(<span class="string">&quot;***********************&quot;</span>);</span><br><span class="line">	<span class="keyword">int</span>[][] intArr=<span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">1</span>][<span class="number">3</span>];</span><br><span class="line">	<span class="comment">//外层默认初始化值</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; intArr.length; i++) &#123;</span><br><span class="line">		System.out.println(intArr[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//[I@1540e19d</span></span><br><span class="line">	<span class="comment">//内层默认初始化值</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; intArr.length; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; intArr[i].length; j++) &#123;</span><br><span class="line">			System.out.println(intArr[i][j]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 0</span></span><br><span class="line">	<span class="comment">// 0</span></span><br><span class="line">	<span class="comment">// 0</span></span><br><span class="line">	System.out.println(<span class="string">&quot;***********************&quot;</span>);</span><br><span class="line">	<span class="keyword">long</span>[][] longArr=<span class="keyword">new</span> <span class="keyword">long</span>[<span class="number">1</span>][<span class="number">3</span>];</span><br><span class="line">	<span class="comment">//外层默认初始化值</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; longArr.length; i++) &#123;</span><br><span class="line">		System.out.println(longArr[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//[J@677327b6</span></span><br><span class="line">	<span class="comment">//内层默认初始化值</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; longArr.length; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; longArr[i].length; j++) &#123;</span><br><span class="line">			System.out.println(longArr[i][j]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 0</span></span><br><span class="line">	<span class="comment">// 0</span></span><br><span class="line">	<span class="comment">// 0</span></span><br><span class="line">	System.out.println(<span class="string">&quot;***********************&quot;</span>);</span><br><span class="line">	<span class="keyword">float</span>[][] floatArr=<span class="keyword">new</span> <span class="keyword">float</span>[<span class="number">1</span>][<span class="number">3</span>];</span><br><span class="line">	<span class="comment">//外层默认初始化值</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; floatArr.length; i++) &#123;</span><br><span class="line">		System.out.println(floatArr[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//[D@7f31245a</span></span><br><span class="line">	<span class="comment">//内层默认初始化值</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; floatArr.length; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; floatArr[i].length; j++) &#123;</span><br><span class="line">			System.out.println(floatArr[i][j]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 0.0</span></span><br><span class="line">	<span class="comment">// 0.0</span></span><br><span class="line">	<span class="comment">// 0.0</span></span><br><span class="line">	System.out.println(<span class="string">&quot;***********************&quot;</span>);</span><br><span class="line">	<span class="keyword">double</span>[][] doubleArr=<span class="keyword">new</span> <span class="keyword">double</span>[<span class="number">1</span>][<span class="number">3</span>];</span><br><span class="line">	<span class="comment">//外层默认初始化值</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; doubleArr.length; i++) &#123;</span><br><span class="line">		System.out.println(doubleArr[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//[F@14ae5a5</span></span><br><span class="line">	<span class="comment">//内层默认初始化值</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; doubleArr.length; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; doubleArr[i].length; j++) &#123;</span><br><span class="line">			System.out.println(doubleArr[i][j]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 0.0</span></span><br><span class="line">	<span class="comment">// 0.0</span></span><br><span class="line">	<span class="comment">// 0.0</span></span><br><span class="line">	System.out.println(<span class="string">&quot;***********************&quot;</span>);</span><br><span class="line">	<span class="keyword">boolean</span>[][] booleanArr=<span class="keyword">new</span> <span class="keyword">boolean</span>[<span class="number">1</span>][<span class="number">3</span>];</span><br><span class="line">	<span class="comment">//外层默认初始化值</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; booleanArr.length; i++) &#123;</span><br><span class="line">		System.out.println(booleanArr[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//[Z@6d6f6e28</span></span><br><span class="line">	<span class="comment">//内层默认初始化值</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; booleanArr.length; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; booleanArr[i].length; j++) &#123;</span><br><span class="line">			System.out.println(booleanArr[i][j]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// false</span></span><br><span class="line">	<span class="comment">// false</span></span><br><span class="line">	<span class="comment">// false</span></span><br><span class="line">	System.out.println(<span class="string">&quot;***********************&quot;</span>);</span><br><span class="line">	<span class="keyword">char</span>[][] charArr=<span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">1</span>][<span class="number">3</span>];</span><br><span class="line">	<span class="comment">//外层默认初始化值</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; charArr.length; i++) &#123;</span><br><span class="line">		System.out.println(charArr[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// [Z@6d6f6e28</span></span><br><span class="line">	<span class="comment">//内层默认初始化值</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; charArr.length; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; charArr[i].length; j++) &#123;</span><br><span class="line">			System.out.println(charArr[i][j]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// \u0000</span></span><br><span class="line">	System.out.println(<span class="string">&quot;***********************&quot;</span>);</span><br><span class="line">	String[][] StringArr=<span class="keyword">new</span> String[<span class="number">1</span>][<span class="number">3</span>];</span><br><span class="line">	<span class="comment">//外层默认初始化值</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; StringArr.length; i++) &#123;</span><br><span class="line">		System.out.println(StringArr[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//[Ljava.lang.String;@135fbaa4</span></span><br><span class="line">	<span class="comment">//内层默认初始化值</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; StringArr.length; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; StringArr[i].length; j++) &#123;</span><br><span class="line">			System.out.println(StringArr[i][j]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// null</span></span><br><span class="line">	<span class="comment">// null</span></span><br><span class="line">	<span class="comment">// null</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-6、数组的内存解析"><a href="#3-6、数组的内存解析" class="headerlink" title="3.6、数组的内存解析"></a>3.6、数组的内存解析</h2><p><strong>1、基本内存展示如下</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20220109233323.png"></p>
+<p> <strong>2、int[ ] [ ] arr1=new int[4] [ ];内存解析</strong> </p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20220110224410.png" alt="image-20220110224401339"></p>
+<p><strong>3、arr1[1]=new int[ ]{1,2,3};内存解析</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20220110224459.png" alt="image-20220110224459636"></p>
+<p><strong>4、arr1[2]=new int[4];内存解析</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20220110224549.png" alt="image-20220110224549014"></p>
+<p><strong>5、arr1[2] [1]=30;内存解析</strong></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20220110224624.png" alt="image-20220110224624869"></p>
 ]]></content>
       <categories>
         <category>javase</category>
@@ -492,6 +640,14 @@
       <tags>
         <tag>javase</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>日志实现JUL</title>
+    <url>/2022/01/09/%E6%97%A5%E5%BF%97%E5%AE%9E%E7%8E%B0JUL/</url>
+    <content><![CDATA[<span id="more"></span>
+
+<p>[toc]</p>
+]]></content>
   </entry>
   <entry>
     <title>日志实现Log4j</title>
@@ -504,6 +660,14 @@
   <entry>
     <title>日志实现Log4j2</title>
     <url>/2022/01/09/%E6%97%A5%E5%BF%97%E5%AE%9E%E7%8E%B0Log4j2/</url>
+    <content><![CDATA[<span id="more"></span>
+
+<p>[toc]</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>日志实现Logback</title>
+    <url>/2022/01/09/%E6%97%A5%E5%BF%97%E5%AE%9E%E7%8E%B0Logback/</url>
     <content><![CDATA[<span id="more"></span>
 
 <p>[toc]</p>
@@ -560,19 +724,51 @@
 ]]></content>
   </entry>
   <entry>
-    <title>日志实现Logback</title>
-    <url>/2022/01/09/%E6%97%A5%E5%BF%97%E5%AE%9E%E7%8E%B0Logback/</url>
-    <content><![CDATA[<span id="more"></span>
-
-<p>[toc]</p>
-]]></content>
-  </entry>
-  <entry>
     <title>日志门面SLF4J</title>
     <url>/2022/01/09/%E6%97%A5%E5%BF%97%E9%97%A8%E9%9D%A2SLF4J/</url>
     <content><![CDATA[<span id="more"></span>
 
 <p>[toc]</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>java练习题</title>
+    <url>/2022/01/10/java%E7%BB%83%E4%B9%A0%E9%A2%98/</url>
+    <content><![CDATA[<span id="more"></span>
+
+<h1 id="数组练习题"><a href="#数组练习题" class="headerlink" title="数组练习题"></a>数组练习题</h1><p>题1</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">升景坊单间短期出租4个月，550元/月空调、卫生间、厨房齐全。</span></span><br><span class="line"><span class="comment">屋内均是IT行业人事，喜欢安静，所以要求来租者最好是同行或者刚毕业的年轻人，爱干净，安静。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span>[] arr=<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">8</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">3</span>&#125;;</span><br><span class="line">	<span class="keyword">int</span>[] index=<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">2</span>,<span class="number">0</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>&#125;;</span><br><span class="line">	String tel=<span class="string">&quot;&quot;</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;index.length;i++)&#123;</span><br><span class="line">		tel+=arr[index[i]];</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println(<span class="string">&quot;联系方式:&quot;</span>+tel);<span class="comment">//18013820100</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>题2</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">从键盘读入学生成绩，找出最高分，并输出学生成绩等级</span></span><br><span class="line"><span class="comment">1、成绩&gt;=最高分-10  等级为A</span></span><br><span class="line"><span class="comment">2、成绩&gt;=最高分-20  等级为B</span></span><br><span class="line"><span class="comment">3、成绩&gt;=最高分-30  等级为C</span></span><br><span class="line"><span class="comment">4、其余             等级为D</span></span><br><span class="line"><span class="comment">提示：先读入学生人数，根据人数创建int数组，存放学生成绩。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	Scanner scanner = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">	System.out.print(<span class="string">&quot;请输入学生总数:&quot;</span>);</span><br><span class="line">	<span class="keyword">int</span> peoples = scanner.nextInt();</span><br><span class="line">	System.out.println();</span><br><span class="line">	<span class="keyword">int</span>[] stu = <span class="keyword">new</span> <span class="keyword">int</span>[peoples];</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; stu.length; i++) &#123;</span><br><span class="line">		stu[i] = ((<span class="keyword">int</span>)( Math.random() * <span class="number">100</span>)) + <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> max=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; stu.length; i++) &#123;</span><br><span class="line">		<span class="keyword">if</span> (max&lt;stu[i])&#123;</span><br><span class="line">			max=stu[i];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println(<span class="string">&quot;最大值为:&quot;</span>+max);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; stu.length; i++) &#123;</span><br><span class="line">		<span class="keyword">if</span> (stu[i]&gt;=max-<span class="number">10</span>) &#123;</span><br><span class="line">			System.out.println(<span class="string">&quot;学生stu&quot;</span>+i+<span class="string">&quot;成绩为：&quot;</span>+stu[i]+<span class="string">&quot;等级为:A&quot;</span>);</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (stu[i]&gt;=max-<span class="number">20</span> &amp;&amp; stu[i]&lt;=max-<span class="number">10</span>) &#123;</span><br><span class="line">			System.out.println(<span class="string">&quot;学生stu&quot;</span>+i+<span class="string">&quot;成绩为：&quot;</span>+stu[i]+<span class="string">&quot;等级为:B&quot;</span>);</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (stu[i]&gt;=max-<span class="number">30</span> &amp;&amp; stu[i]&lt;=max-<span class="number">20</span> )&#123;</span><br><span class="line">			System.out.println(<span class="string">&quot;学生stu&quot;</span>+i+<span class="string">&quot;成绩为：&quot;</span>+stu[i]+<span class="string">&quot;等级为:C&quot;</span>);</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			System.out.println(<span class="string">&quot;学生stu&quot;</span>+i+<span class="string">&quot;成绩为：&quot;</span>+stu[i]+<span class="string">&quot;等级为:D&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>题3</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span>、写出以为数组初始化的两种方式</span><br><span class="line"><span class="number">2</span>、写出二维数组初始化的两种方式</span><br><span class="line"><span class="number">3</span>、如何遍历如下的二维数组：<span class="keyword">int</span>[] arr=<span class="keyword">new</span> <span class="keyword">int</span>[][]&#123;&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;,&#123;<span class="number">4</span>,<span class="number">5</span>&#125;,&#123;<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>&#125;&#125;;</span><br><span class="line"><span class="number">4</span>、不同类型的一维数组元素的默认初始化值各是多少</span><br><span class="line"><span class="number">5</span>、一维数组的内存解析</span><br><span class="line">    String[] strs=<span class="keyword">new</span> String[<span class="number">5</span>];</span><br><span class="line">	strs[<span class="number">2</span>]=<span class="string">&quot;TOM&quot;</span>;</span><br><span class="line">	strs=<span class="keyword">new</span> String[<span class="number">3</span>];</span><br></pre></td></tr></table></figure>
+
+<p>题4</p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20220110225436.png" alt="image-20220110225436503"></p>
+<p>题5</p>
+<p>​    <img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20220110225509.png"></p>
+<p>题6</p>
+<p>​    <img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20220110225545.png" alt="image-20220110225545278"></p>
+<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20220110225617.png" alt="image-20220110225617133"></p>
+<h1 id="数组中涉及的常见算法练习题"><a href="#数组中涉及的常见算法练习题" class="headerlink" title="数组中涉及的常见算法练习题"></a>数组中涉及的常见算法练习题</h1>]]></content>
+  </entry>
+  <entry>
+    <title>git</title>
+    <url>/2021/12/26/git/</url>
+    <content><![CDATA[<p><img data-src="https://cdn.jsdelivr.net/gh/codefishyyf/images@main/img/20211226175034.jpeg" alt="img"></p>
+<h1 id="Git、GitHub、Gitee、GitLab"><a href="#Git、GitHub、Gitee、GitLab" class="headerlink" title="Git、GitHub、Gitee、GitLab"></a>Git、GitHub、Gitee、GitLab</h1><span id="more"></span>
+
+<h2 id="一、Git介绍"><a href="#一、Git介绍" class="headerlink" title="一、Git介绍"></a>一、Git介绍</h2><p>分布式版本控制工具 ：Git</p>
+<p>集中式版本控制工具：SVN</p>
+<p>、IDEA中使用Git</p>
+]]></content>
+      <categories>
+        <category>GIT</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
   </entry>
 </search>
